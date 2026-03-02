@@ -36,7 +36,7 @@ const LeadFormSection = () => {
   if (submitted) {
     return (
       <section className="section-padding bg-background" id="lead-form">
-        <div className="container-narrow max-w-xl text-center space-y-4">
+        <div className="container-narrow max-w-2xl text-center space-y-6">
           <div className="inline-flex p-4 rounded-full bg-accent text-accent-foreground">
             <CheckCircle className="w-10 h-10" />
           </div>
@@ -44,8 +44,18 @@ const LeadFormSection = () => {
             Thank you!
           </h2>
           <p className="text-muted-foreground">
-            We'll reach out shortly with personalized guidance.
+            We'll reach out shortly. You can also book a free consultation below:
           </p>
+          <div className="rounded-2xl overflow-hidden border border-border bg-card card-elevated">
+            <iframe
+              src="https://calendly.com/madhan"
+              width="100%"
+              height="660"
+              frameBorder="0"
+              title="Book a consultation with Madhan"
+              className="w-full"
+            />
+          </div>
         </div>
       </section>
     );
