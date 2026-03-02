@@ -1,10 +1,12 @@
-import { CreditCard, Wallet, Gift, Calculator, Shield, Plane } from "lucide-react";
+import { CreditCard, Wallet, Gift, Calculator, Shield, Plane, HeartPulse, FileCheck } from "lucide-react";
 
 const items = [
   { icon: CreditCard, title: "Credit Card Guidance", desc: "Choose and use credit cards wisely" },
   { icon: Wallet, title: "Debit Card Benefits", desc: "Maximize your debit card perks" },
   { icon: Gift, title: "Reward Points & Cashback", desc: "Never miss a reward opportunity" },
   { icon: Calculator, title: "EMI Awareness", desc: "Understand EMI costs before committing" },
+  { icon: HeartPulse, title: "Health Insurance", desc: "Pick the right health cover for your family" },
+  { icon: FileCheck, title: "Term Insurance", desc: "Secure your family's future affordably" },
   { icon: Shield, title: "Insurance Protection", desc: "Know what your cards actually cover" },
   { icon: Plane, title: "Smart Travel Deals", desc: "Save on travel with the right cards" },
 ];
@@ -19,7 +21,7 @@ const ExpertiseSection = () => {
         <p className="text-muted-foreground text-center mb-12 max-w-lg mx-auto">
           Practical guidance to make your financial tools work for you.
         </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item, i) => (
             <div
               key={i}
