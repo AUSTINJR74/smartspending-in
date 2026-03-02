@@ -1,4 +1,4 @@
-import { Instagram, Twitter, Linkedin, Youtube, Mail, MessageCircle, ArrowRight, TrendingUp } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Youtube, Mail, MessageCircle, TrendingUp, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const socials = [
@@ -8,32 +8,29 @@ const socials = [
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
 ];
 
-const FooterSection = () => {
+const InsuranceFooter = () => {
   return (
-    <footer className="bg-foreground text-background" id="contact">
-      {/* CTA Banner */}
-      <div className="px-5 md:px-8 py-16">
-        <div className="container-narrow text-center space-y-6">
-          <h2 className="text-2xl md:text-3xl font-bold font-heading">
-            Ready to Make Smarter Decisions?
-          </h2>
-          <p className="text-background/60 max-w-lg mx-auto">
-            Book your free consultation today and take the first step toward clarity.
-          </p>
-          <Button size="lg" className="bg-background text-foreground hover:bg-background/90 rounded-xl gap-2 h-13 px-8 text-base hover:scale-[1.02] transition-all" asChild>
-            <a href="#booking">
-              Book Your Call
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </Button>
+    <footer className="bg-foreground text-background" id="insurance-footer">
+      {/* Disclaimer */}
+      <div className="px-5 md:px-8 py-10 border-b border-background/10">
+        <div className="container-narrow">
+          <div className="flex items-start gap-3 p-5 rounded-2xl bg-background/5 border border-background/10">
+            <AlertTriangle className="w-5 h-5 text-background/50 shrink-0 mt-0.5" />
+            <div className="space-y-2">
+              <p className="font-heading font-semibold text-sm">Disclaimer</p>
+              <p className="text-xs text-background/40 leading-relaxed">
+                The information provided on this website is for general awareness and educational purposes only. It does not constitute financial, insurance, or investment advice. Insurance plans and their benefits are subject to policy terms and conditions of respective insurance companies. We recommend consulting with a qualified insurance advisor before making any decisions. SmartSpend with Madhan is not an insurance company and does not underwrite policies.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-background/10">
-        <div className="container-wide px-5 md:px-8 py-10">
+      <div className="px-5 md:px-8 py-10">
+        <div className="container-wide">
           <div className="grid sm:grid-cols-3 gap-8 mb-10">
             <div className="space-y-3">
-              <a href="#hero" className="flex items-center gap-2">
+              <a href="/" className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-md bg-background/10 flex items-center justify-center">
                   <TrendingUp className="w-4 h-4" />
                 </div>
@@ -42,17 +39,16 @@ const FooterSection = () => {
                 </span>
               </a>
               <p className="text-background/50 text-sm leading-relaxed">
-                Professional consultation services for smarter financial decisions.
+                Helping individuals and families make informed financial and insurance decisions with honest, no-pressure guidance.
               </p>
             </div>
 
             <div className="space-y-3">
               <p className="font-heading font-semibold text-sm">Quick Links</p>
               <div className="flex flex-col gap-2 text-sm text-background/50">
-                <a href="#about" className="hover:text-background transition-colors w-fit">About</a>
-                <a href="#services" className="hover:text-background transition-colors w-fit">Services</a>
-                <a href="#booking" className="hover:text-background transition-colors w-fit">Book a Call</a>
-                <a href="#faq" className="hover:text-background transition-colors w-fit">FAQ</a>
+                <a href="/" className="hover:text-background transition-colors w-fit">Home</a>
+                <a href="#insurance-types" className="hover:text-background transition-colors w-fit">Insurance Types</a>
+                <a href="#insurance-booking" className="hover:text-background transition-colors w-fit">Book Consultation</a>
               </div>
             </div>
 
@@ -94,4 +90,4 @@ const FooterSection = () => {
   );
 };
 
-export default FooterSection;
+export default InsuranceFooter;
