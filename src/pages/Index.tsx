@@ -1,22 +1,22 @@
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import ContentSection from "@/components/ContentSection";
-import LeadFormSection from "@/components/LeadFormSection";
-import TrustSection from "@/components/TrustSection";
-import DisclaimerSection from "@/components/DisclaimerSection";
+import ServicesSection from "@/components/ServicesSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import BookingFormSection from "@/components/BookingFormSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background scroll-smooth">
       <HeroSection />
       <AboutSection />
-      <ExpertiseSection />
-      <ContentSection />
-      <LeadFormSection />
-      <TrustSection />
-      <DisclaimerSection />
+      <ServicesSection />
+      <HowItWorksSection />
+      <BookingFormSection />
+      <TestimonialsSection />
+      <FAQSection />
       <FooterSection />
     </div>
   );
