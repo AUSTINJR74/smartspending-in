@@ -1,4 +1,4 @@
-import { Instagram, Twitter, Linkedin, Youtube, Mail, MessageCircle, ArrowRight } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Youtube, Mail, MessageCircle, ArrowRight, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const socials = [
@@ -10,7 +10,7 @@ const socials = [
 
 const FooterSection = () => {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-foreground text-background" id="contact">
       {/* CTA Banner */}
       <div className="px-5 md:px-8 py-16">
         <div className="container-narrow text-center space-y-6">
@@ -33,9 +33,14 @@ const FooterSection = () => {
         <div className="container-wide px-5 md:px-8 py-10">
           <div className="grid sm:grid-cols-3 gap-8 mb-10">
             <div className="space-y-3">
-              <p className="font-heading font-bold text-xl">
-                Consultation<span className="text-primary">.</span>
-              </p>
+              <a href="#hero" className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-md bg-background/10 flex items-center justify-center">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+                <span className="font-heading font-bold text-lg">
+                  Smart<span className="text-primary">Spending</span><span className="text-background/50 text-sm">.in</span>
+                </span>
+              </a>
               <p className="text-background/50 text-sm leading-relaxed">
                 Professional consultation services for smarter financial decisions.
               </p>
@@ -53,8 +58,8 @@ const FooterSection = () => {
 
             <div className="space-y-3">
               <p className="font-heading font-semibold text-sm">Contact</p>
-              <a href="mailto:contact@example.com" className="flex items-center gap-2 text-sm text-background/50 hover:text-background transition-colors w-fit">
-                <Mail className="w-4 h-4" /> contact@example.com
+              <a href="mailto:contact@smartspending.in" className="flex items-center gap-2 text-sm text-background/50 hover:text-background transition-colors w-fit">
+                <Mail className="w-4 h-4" /> contact@smartspending.in
               </a>
               <Button size="sm" variant="outline" className="gap-2 border-background/20 text-background hover:bg-background/10 rounded-lg" asChild>
                 <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
@@ -80,7 +85,7 @@ const FooterSection = () => {
               ))}
             </div>
             <p className="text-xs text-background/30">
-              © {new Date().getFullYear()} Consultation Services. All rights reserved.
+              © {new Date().getFullYear()} SmartSpending.in — All rights reserved.
             </p>
           </div>
         </div>
