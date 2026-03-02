@@ -50,9 +50,9 @@ const placeholderHints: Record<string, string> = {
 };
 
 const formSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  phone: z.string().trim().min(1, "Phone number is required").regex(/^\+?\d[\d\s-]{7,14}$/, "Enter a valid phone number with country code"),
-  email: z.string().trim().min(1, "Email is required").email("Enter a valid email address"),
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
+  phone: z.string().trim().min(1, "Phone number is required").regex(/^\+\d{1,3}\s?\d{6,14}$/, "Enter valid number with country code (e.g. +91 9876543210)"),
+  email: z.string().trim().min(1, "Email is required").regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Enter a valid email (e.g. name@example.com)"),
   consultationType: z.string().min(1, "Select a consultation type"),
   discussionTopic: z.string().min(1, "Select a discussion topic"),
   message: z.string().max(1000).optional(),
@@ -151,29 +151,29 @@ const BookingFormSection = () => {
           {/* Name */}
           <div className="space-y-1.5">
             <Label htmlFor="name" className="text-sm font-medium">Full Name *</Label>
-            <Input id="name" name="name" placeholder="John Doe" maxLength={100} className={`h-12 rounded-xl ${errors.name ? "border-destructive" : ""}`} />
-            {errors.name && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.name}</p>}
+            <Input id="name" name="name" placeholder="John Doe" maxLength={100} className={`h-12 rounded-xl transition-all ${errors.name ? "border-destructive ring-2 ring-destructive/20 bg-destructive/5" : ""}`} />
+            {errors.name && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1.5 bg-destructive/10 px-3 py-1.5 rounded-lg animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.name}</p>}
           </div>
 
           {/* Phone */}
           <div className="space-y-1.5">
             <Label htmlFor="phone" className="text-sm font-medium">Phone (with country code) *</Label>
-            <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" maxLength={16} className={`h-12 rounded-xl ${errors.phone ? "border-destructive" : ""}`} />
-            {errors.phone && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.phone}</p>}
+            <Input id="phone" name="phone" type="tel" placeholder="+91 9876543210" maxLength={16} className={`h-12 rounded-xl transition-all ${errors.phone ? "border-destructive ring-2 ring-destructive/20 bg-destructive/5" : ""}`} />
+            {errors.phone && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1.5 bg-destructive/10 px-3 py-1.5 rounded-lg animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.phone}</p>}
           </div>
 
           {/* Email */}
           <div className="space-y-1.5">
             <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
-            <Input id="email" name="email" type="email" placeholder="you@example.com" maxLength={255} className={`h-12 rounded-xl ${errors.email ? "border-destructive" : ""}`} />
-            {errors.email && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.email}</p>}
+            <Input id="email" name="email" type="email" placeholder="name@example.com" maxLength={255} className={`h-12 rounded-xl transition-all ${errors.email ? "border-destructive ring-2 ring-destructive/20 bg-destructive/5" : ""}`} />
+            {errors.email && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1.5 bg-destructive/10 px-3 py-1.5 rounded-lg animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.email}</p>}
           </div>
 
           {/* Consultation Type */}
           <div className="space-y-1.5">
             <Label className="text-sm font-medium">Consultation Type *</Label>
             <Select value={consultationType} onValueChange={(v) => { setConsultationType(v); if (errors.consultationType) setErrors((e) => ({ ...e, consultationType: undefined })); }}>
-              <SelectTrigger className={`h-12 rounded-xl ${errors.consultationType ? "border-destructive" : ""}`}>
+              <SelectTrigger className={`h-12 rounded-xl transition-all ${errors.consultationType ? "border-destructive ring-2 ring-destructive/20 bg-destructive/5" : ""}`}>
                 <SelectValue placeholder="Select consultation type" />
               </SelectTrigger>
               <SelectContent>
@@ -182,14 +182,14 @@ const BookingFormSection = () => {
                 ))}
               </SelectContent>
             </Select>
-            {errors.consultationType && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.consultationType}</p>}
+            {errors.consultationType && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1.5 bg-destructive/10 px-3 py-1.5 rounded-lg animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.consultationType}</p>}
           </div>
 
           {/* Discussion Topic */}
           <div className="space-y-1.5">
             <Label className="text-sm font-medium">Discussion Topic *</Label>
             <Select value={discussionTopic} onValueChange={(v) => { setDiscussionTopic(v); if (errors.discussionTopic) setErrors((e) => ({ ...e, discussionTopic: undefined })); }}>
-              <SelectTrigger className={`h-12 rounded-xl ${errors.discussionTopic ? "border-destructive" : ""}`}>
+              <SelectTrigger className={`h-12 rounded-xl transition-all ${errors.discussionTopic ? "border-destructive ring-2 ring-destructive/20 bg-destructive/5" : ""}`}>
                 <SelectValue placeholder="Select discussion topic" />
               </SelectTrigger>
               <SelectContent>
@@ -198,7 +198,7 @@ const BookingFormSection = () => {
                 ))}
               </SelectContent>
             </Select>
-            {errors.discussionTopic && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.discussionTopic}</p>}
+            {errors.discussionTopic && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1.5 bg-destructive/10 px-3 py-1.5 rounded-lg animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.discussionTopic}</p>}
           </div>
 
           {/* Message with dynamic placeholder */}
