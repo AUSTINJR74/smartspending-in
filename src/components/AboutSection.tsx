@@ -1,54 +1,64 @@
-import { Award, Target, Users } from "lucide-react";
+import { Award, Target, Users, CheckCircle } from "lucide-react";
 import profileImg from "@/assets/madhan-profile.png";
 
-const highlights = [
-  { icon: Award, title: "Certified Expert", desc: "Years of experience in financial consulting and strategic guidance." },
-  { icon: Target, title: "Goal-Oriented", desc: "Every session is focused on actionable outcomes for your success." },
-  { icon: Users, title: "500+ Clients", desc: "Trusted by individuals and businesses across the country." },
+const points = [
+  "Certified financial strategy expert",
+  "Personalized, goal-driven sessions",
+  "Trusted by 500+ satisfied clients",
+  "Simple, actionable advice — no jargon",
 ];
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-card" id="about">
-      <div className="container-narrow">
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+    <section className="section-padding bg-card/50" id="about">
+      <div className="container-wide">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Image */}
           <div className="relative mx-auto md:mx-0">
-            <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden ring-4 ring-border shadow-lg">
-              <img
-                src={profileImg}
-                alt="Professional Consultant"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl font-heading font-semibold text-sm shadow-lg">
-              Available Now
-            </div>
-          </div>
-
-          <div className="space-y-5">
-            <p className="text-primary font-medium text-sm uppercase tracking-wider">About Me</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground">
-              Your Trusted Consultation Partner
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              I'm a dedicated professional helping individuals and businesses make smarter decisions. With a focus on simplicity and clarity, I provide guidance that cuts through the noise and delivers real results.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Whether it's financial planning, smart spending strategies, or personalized advice, every consultation is designed around your unique goals.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-6">
-          {highlights.map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center p-6 rounded-2xl bg-background card-elevated">
-              <div className="p-3 rounded-xl bg-accent text-accent-foreground mb-4">
-                <item.icon className="w-6 h-6" />
+            <div className="relative">
+              <div className="w-72 h-80 md:w-80 md:h-96 rounded-3xl overflow-hidden shadow-lg">
+                <img
+                  src={profileImg}
+                  alt="Professional Consultant"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="font-heading font-semibold text-foreground mb-2">{item.title}</h3>
-              <p className="text-sm text-muted-foreground">{item.desc}</p>
+              {/* Floating card */}
+              <div className="absolute -bottom-6 -right-6 bg-background p-4 rounded-2xl shadow-lg border border-border animate-float">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                    <Award className="w-5 h-5 text-accent-foreground" />
+                  </div>
+                  <div>
+                    <p className="font-heading font-semibold text-sm text-foreground">Top Rated</p>
+                    <p className="text-xs text-muted-foreground">4.9/5 rating</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Content */}
+          <div className="space-y-6">
+            <div>
+              <p className="section-label">About Me</p>
+              <h2 className="section-title">
+                Your Trusted Partner for{" "}
+                <span className="text-primary">Smarter Decisions</span>
+              </h2>
+            </div>
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+              I help individuals and businesses navigate complex financial decisions with clarity and confidence. My approach is simple — cut the noise, focus on what matters, and deliver results.
+            </p>
+            <div className="space-y-3 pt-2">
+              {points.map((point, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-foreground/90 font-medium text-sm">{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
