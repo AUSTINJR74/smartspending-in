@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { CheckCircle, Calendar, ArrowRight, Shield } from "lucide-react";
+import { CheckCircle, Calendar, ArrowRight, Shield, AlertCircle } from "lucide-react";
 import { z } from "zod";
 
 /**
@@ -138,21 +138,21 @@ const InsuranceForm = () => {
           <div className="space-y-1.5">
             <Label htmlFor="ins-name" className="text-sm font-medium">Full Name *</Label>
             <Input id="ins-name" name="name" placeholder="John Doe" maxLength={100} className={`h-12 rounded-xl ${errors.name ? "border-destructive" : ""}`} />
-            {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+            {errors.name && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.name}</p>}
           </div>
 
           {/* Phone */}
           <div className="space-y-1.5">
             <Label htmlFor="ins-phone" className="text-sm font-medium">Phone (with country code) *</Label>
             <Input id="ins-phone" name="phone" type="tel" placeholder="+91 98765 43210" maxLength={16} className={`h-12 rounded-xl ${errors.phone ? "border-destructive" : ""}`} />
-            {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
+            {errors.phone && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.phone}</p>}
           </div>
 
           {/* Email */}
           <div className="space-y-1.5">
             <Label htmlFor="ins-email" className="text-sm font-medium">Email Address *</Label>
             <Input id="ins-email" name="email" type="email" placeholder="you@example.com" maxLength={255} className={`h-12 rounded-xl ${errors.email ? "border-destructive" : ""}`} />
-            {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+            {errors.email && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.email}</p>}
           </div>
 
           {/* Consultation Type - Checkboxes */}
@@ -176,7 +176,7 @@ const InsuranceForm = () => {
                 </label>
               ))}
             </div>
-            {errors.consultationTypes && <p className="text-sm text-destructive">{errors.consultationTypes}</p>}
+            {errors.consultationTypes && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.consultationTypes}</p>}
           </div>
 
           {/* Discussion Topic - Checkboxes */}
@@ -200,7 +200,7 @@ const InsuranceForm = () => {
                 </label>
               ))}
             </div>
-            {errors.discussionTopics && <p className="text-sm text-destructive">{errors.discussionTopics}</p>}
+            {errors.discussionTopics && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.discussionTopics}</p>}
           </div>
 
           {/* Message */}
