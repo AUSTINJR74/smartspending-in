@@ -12,6 +12,8 @@ const interests = [
   "Debit Card Benefits",
   "Rewards & Cashback",
   "EMI Guidance",
+  "Health Insurance",
+  "Term Insurance",
   "Insurance Awareness",
 ];
 

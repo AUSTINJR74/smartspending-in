@@ -24,7 +24,7 @@ const HeroSection = () => {
             Madhan
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 font-medium leading-relaxed">
-            Helping everyday Indians use Credit & Debit Cards the smart way.
+            Helping everyday Indians use Credit & Debit Cards the smart way — and make informed decisions on Health & Term Insurance.
           </p>
           <p className="text-muted-foreground text-base md:text-lg">
             Simple finance. Real guidance. No hype.
