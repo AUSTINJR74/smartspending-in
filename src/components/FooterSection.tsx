@@ -1,4 +1,5 @@
-import { Instagram, Twitter, Linkedin, Youtube, Mail } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Youtube, Mail, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const socials = [
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
@@ -9,33 +10,58 @@ const socials = [
 
 const FooterSection = () => {
   return (
-    <footer className="bg-foreground text-background py-10 px-4">
-      <div className="container-narrow text-center space-y-5">
-        <p className="font-heading font-semibold text-lg">Madhan | Finance Educator</p>
-        <div className="flex justify-center gap-4">
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="p-2 rounded-full bg-background/10 hover:bg-background/20 transition-colors"
-            >
-              <s.icon className="w-5 h-5" />
+    <footer className="bg-foreground text-background py-12 px-4">
+      <div className="container-narrow">
+        <div className="grid sm:grid-cols-3 gap-8 mb-10">
+          <div className="space-y-3">
+            <p className="font-heading font-bold text-xl">Consultation</p>
+            <p className="text-background/60 text-sm leading-relaxed">
+              Professional consultation services to help you make smarter decisions.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <p className="font-heading font-semibold">Quick Links</p>
+            <div className="flex flex-col gap-2 text-sm text-background/60">
+              <a href="#about" className="hover:text-background transition-colors">About</a>
+              <a href="#services" className="hover:text-background transition-colors">Services</a>
+              <a href="#booking" className="hover:text-background transition-colors">Book a Call</a>
+              <a href="#faq" className="hover:text-background transition-colors">FAQ</a>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="font-heading font-semibold">Get in Touch</p>
+            <a href="mailto:contact@example.com" className="flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors">
+              <Mail className="w-4 h-4" /> contact@example.com
             </a>
-          ))}
+            <Button size="sm" variant="outline" className="gap-2 border-background/20 text-background hover:bg-background/10" asChild>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-4 h-4" /> WhatsApp Us
+              </a>
+            </Button>
+          </div>
         </div>
-        <a
-          href="mailto:contact@madhan.com"
-          className="inline-flex items-center gap-2 text-sm text-background/70 hover:text-background transition-colors"
-        >
-          <Mail className="w-4 h-4" />
-          contact@madhan.com
-        </a>
-        <p className="text-xs text-background/50">
-          © {new Date().getFullYear()} Madhan. All rights reserved.
-        </p>
+
+        <div className="border-t border-background/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex gap-3">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="p-2.5 rounded-full bg-background/10 hover:bg-background/20 transition-colors"
+              >
+                <s.icon className="w-4 h-4" />
+              </a>
+            ))}
+          </div>
+          <p className="text-xs text-background/40">
+            © {new Date().getFullYear()} Consultation Services. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
