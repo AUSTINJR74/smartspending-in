@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CheckCircle, Calendar, ArrowRight, Shield, Sparkles } from "lucide-react";
+import { CheckCircle, Calendar, ArrowRight, Shield, Sparkles, AlertCircle } from "lucide-react";
 import { z } from "zod";
 
 /**
@@ -152,21 +152,21 @@ const BookingFormSection = () => {
           <div className="space-y-1.5">
             <Label htmlFor="name" className="text-sm font-medium">Full Name *</Label>
             <Input id="name" name="name" placeholder="John Doe" maxLength={100} className={`h-12 rounded-xl ${errors.name ? "border-destructive" : ""}`} />
-            {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+            {errors.name && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.name}</p>}
           </div>
 
           {/* Phone */}
           <div className="space-y-1.5">
             <Label htmlFor="phone" className="text-sm font-medium">Phone (with country code) *</Label>
             <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" maxLength={16} className={`h-12 rounded-xl ${errors.phone ? "border-destructive" : ""}`} />
-            {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
+            {errors.phone && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.phone}</p>}
           </div>
 
           {/* Email */}
           <div className="space-y-1.5">
             <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
             <Input id="email" name="email" type="email" placeholder="you@example.com" maxLength={255} className={`h-12 rounded-xl ${errors.email ? "border-destructive" : ""}`} />
-            {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+            {errors.email && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.email}</p>}
           </div>
 
           {/* Consultation Type */}
@@ -182,7 +182,7 @@ const BookingFormSection = () => {
                 ))}
               </SelectContent>
             </Select>
-            {errors.consultationType && <p className="text-sm text-destructive">{errors.consultationType}</p>}
+            {errors.consultationType && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.consultationType}</p>}
           </div>
 
           {/* Discussion Topic */}
@@ -198,7 +198,7 @@ const BookingFormSection = () => {
                 ))}
               </SelectContent>
             </Select>
-            {errors.discussionTopic && <p className="text-sm text-destructive">{errors.discussionTopic}</p>}
+            {errors.discussionTopic && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1 animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.discussionTopic}</p>}
           </div>
 
           {/* Message with dynamic placeholder */}
