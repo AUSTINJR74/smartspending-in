@@ -1,27 +1,43 @@
 import { useState, useEffect } from "react";
 import { Menu, X, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const navLinks = [
+interface NavbarProps {
+  variant?: "home" | "insurance";
+}
+
+const homeLinks = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Insurance", href: "/insurance", isRoute: true },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Book Call", href: "#booking" },
   { label: "Contact", href: "#contact" },
 ];
 
-const Navbar = () => {
+const insuranceLinks = [
+  { label: "Home", href: "/", isRoute: true },
+  { label: "About Insurance", href: "#insurance-hero" },
+  { label: "Insurance Types", href: "#insurance-types" },
+  { label: "Book Consultation", href: "#insurance-booking" },
+  { label: "Contact", href: "#insurance-footer" },
+];
+
+const Navbar = ({ variant = "home" }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("#hero");
+  const [activeSection, setActiveSection] = useState("");
+  const navigate = useNavigate();
+
+  const navLinks = variant === "insurance" ? insuranceLinks : homeLinks;
 
   useEffect(() => {
+    const hashLinks = navLinks.filter((l) => !l.isRoute);
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      // Detect active section
-      const sections = navLinks.map((l) => l.href.slice(1));
+      const sections = hashLinks.map((l) => l.href.slice(1));
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.getBoundingClientRect().top <= 120) {
@@ -32,7 +48,16 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [variant]);
+
+  const handleClick = (link: typeof navLinks[0]) => {
+    setMobileOpen(false);
+    if (link.isRoute) {
+      navigate(link.href);
+    }
+  };
+
+  const bookingHref = variant === "insurance" ? "#insurance-booking" : "#booking";
 
   return (
     <nav
@@ -44,23 +69,38 @@ const Navbar = () => {
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-[4.5rem] px-5 md:px-8">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2 group">
+        <a
+          href={variant === "insurance" ? "/" : "#hero"}
+          onClick={(e) => {
+            if (variant === "insurance") {
+              e.preventDefault();
+              navigate("/");
+            }
+          }}
+          className="flex items-center gap-2 group"
+        >
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
             <TrendingUp className="w-4.5 h-4.5 text-primary-foreground" />
           </div>
-          <span className="font-heading font-bold text-lg text-foreground tracking-tight">
-            Smart<span className="text-primary">Spending</span><span className="text-muted-foreground text-sm">.in</span>
+          <span className="font-heading font-bold text-base md:text-lg text-foreground tracking-tight">
+            SmartSpend<span className="text-muted-foreground font-normal text-sm"> with Madhan</span>
           </span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={link.isRoute ? link.href : link.href}
+              onClick={(e) => {
+                if (link.isRoute) {
+                  e.preventDefault();
+                  handleClick(link);
+                }
+              }}
               className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 ${
-                activeSection === link.href
+                !link.isRoute && activeSection === link.href
                   ? "text-foreground after:w-full"
                   : "text-muted-foreground hover:text-foreground after:w-0 hover:after:w-full"
               }`}
@@ -69,7 +109,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button size="sm" className="rounded-lg px-5 ml-1 hover:scale-[1.02] transition-all" asChild>
-            <a href="#booking">Book Consultation</a>
+            <a href={bookingHref}>Book Consultation</a>
           </Button>
         </div>
 
@@ -90,10 +130,15 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
+                href={link.isRoute ? link.href : link.href}
+                onClick={(e) => {
+                  if (link.isRoute) {
+                    e.preventDefault();
+                  }
+                  handleClick(link);
+                }}
                 className={`text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
-                  activeSection === link.href
+                  !link.isRoute && activeSection === link.href
                     ? "text-foreground bg-accent"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
@@ -102,7 +147,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button size="sm" className="mt-2 rounded-lg" asChild>
-              <a href="#booking" onClick={() => setMobileOpen(false)}>Book Consultation</a>
+              <a href={bookingHref} onClick={() => setMobileOpen(false)}>Book Consultation</a>
             </Button>
           </div>
         </div>

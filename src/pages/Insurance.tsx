@@ -1,0 +1,21 @@
+import Navbar from "@/components/Navbar";
+import InsuranceHero from "@/components/insurance/InsuranceHero";
+import InsuranceTypes from "@/components/insurance/InsuranceTypes";
+import InsuranceCTA from "@/components/insurance/InsuranceCTA";
+import InsuranceForm from "@/components/insurance/InsuranceForm";
+import InsuranceFooter from "@/components/insurance/InsuranceFooter";
+
+const Insurance = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar variant="insurance" />
+      <InsuranceHero />
+      <InsuranceTypes />
+      <InsuranceCTA />
+      <InsuranceForm />
+      <InsuranceFooter />
+    </div>
+  );
+};
+
+export default Insurance;
