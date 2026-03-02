@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle } from "lucide-react";
+import { z } from "zod";
 
 const interests = [
   "Credit Card Guidance",
@@ -17,19 +18,74 @@ const interests = [
   "Insurance Awareness",
 ];
 
+const formSchema = z.object({
+  name: z.string().trim().min(1, "Full name is required").max(100, "Name is too long"),
+  whatsapp: z
+    .string()
+    .trim()
+    .min(1, "WhatsApp number is required")
+    .regex(/^\+?\d[\d\s-]{7,14}$/, "Enter a valid phone number"),
+  email: z
+    .string()
+    .trim()
+    .max(255)
+    .refine((v) => v === "" || z.string().email().safeParse(v).success, "Enter a valid email"),
+  city: z.string().trim().min(1, "City is required").max(100, "City name is too long"),
+  cardUsage: z.enum(["debit-only", "credit-user", "new-to-cards"], {
+    required_error: "Select your card usage",
+  }),
+  question: z.string().max(1000, "Maximum 1000 characters").optional(),
+  interests: z.array(z.string()).min(1, "Select at least one interest"),
+});
+
+type FormData = z.infer<typeof formSchema>;
+type FormErrors = Partial<Record<keyof FormData, string>>;
+
 const LeadFormSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [cardUsage, setCardUsage] = useState("debit-only");
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const [errors, setErrors] = useState<FormErrors>({});
 
   const toggleInterest = (interest: string) => {
     setSelectedInterests((prev) =>
       prev.includes(interest) ? prev.filter((i) => i !== interest) : [...prev, interest]
     );
+    // Clear interest error on change
+    if (errors.interests) {
+      setErrors((e) => ({ ...e, interests: undefined }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    const raw = {
+      name: formData.get("name") as string,
+      whatsapp: formData.get("whatsapp") as string,
+      email: (formData.get("email") as string) || "",
+      city: formData.get("city") as string,
+      cardUsage,
+      question: (formData.get("question") as string) || "",
+      interests: selectedInterests,
+    };
+
+    const result = formSchema.safeParse(raw);
+
+    if (!result.success) {
+      const fieldErrors: FormErrors = {};
+      result.error.issues.forEach((issue) => {
+        const key = issue.path[0] as keyof FormData;
+        if (!fieldErrors[key]) {
+          fieldErrors[key] = issue.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setErrors({});
     setSubmitted(true);
   };
 
@@ -73,25 +129,29 @@ const LeadFormSection = () => {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-card p-6 md:p-8 rounded-2xl card-elevated">
+        <form onSubmit={handleSubmit} noValidate className="space-y-6 bg-card p-6 md:p-8 rounded-2xl card-elevated">
           <div className="space-y-2">
             <Label htmlFor="name">Full Name *</Label>
-            <Input id="name" placeholder="Your full name" required maxLength={100} />
+            <Input id="name" name="name" placeholder="Your full name" maxLength={100} className={errors.name ? "border-destructive" : ""} />
+            {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="whatsapp">WhatsApp Number *</Label>
-            <Input id="whatsapp" type="tel" placeholder="+91 XXXXX XXXXX" required maxLength={15} />
+            <Input id="whatsapp" name="whatsapp" type="tel" placeholder="+91 XXXXX XXXXX" maxLength={15} className={errors.whatsapp ? "border-destructive" : ""} />
+            {errors.whatsapp && <p className="text-sm text-destructive">{errors.whatsapp}</p>}
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="email">Email (optional)</Label>
-            <Input id="email" type="email" placeholder="you@example.com" maxLength={255} />
+            <Input id="email" name="email" type="email" placeholder="you@example.com" maxLength={255} className={errors.email ? "border-destructive" : ""} />
+            {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="city">City / Location *</Label>
-            <Input id="city" placeholder="Your city" required maxLength={100} />
+            <Input id="city" name="city" placeholder="Your city" maxLength={100} className={errors.city ? "border-destructive" : ""} />
+            {errors.city && <p className="text-sm text-destructive">{errors.city}</p>}
           </div>
 
           <div className="space-y-3">
@@ -116,6 +176,7 @@ const LeadFormSection = () => {
             <Label htmlFor="question">Biggest confusion / question</Label>
             <Textarea
               id="question"
+              name="question"
               placeholder="What confuses you most about cards or finance?"
               rows={3}
               maxLength={1000}
@@ -123,7 +184,7 @@ const LeadFormSection = () => {
           </div>
 
           <div className="space-y-3">
-            <Label>Interested in</Label>
+            <Label>Interested in *</Label>
             <div className="flex flex-wrap gap-3">
               {interests.map((interest) => (
                 <label
@@ -138,6 +199,7 @@ const LeadFormSection = () => {
                 </label>
               ))}
             </div>
+            {errors.interests && <p className="text-sm text-destructive">{errors.interests}</p>}
           </div>
 
           <Button type="submit" size="lg" className="w-full text-base">
