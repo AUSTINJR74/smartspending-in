@@ -15,7 +15,7 @@ import { z } from "zod";
  * All FREE tools.
  */
 
-const CALENDLY_URL = "https://calendly.com/genzzcraft/consultation";
+const CALENDLY_URL = "https://calendly.com/genzzcraft/30min";
 
 const consultationTypes = [
   "Life Insurance",

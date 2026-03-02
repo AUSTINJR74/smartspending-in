@@ -22,7 +22,7 @@ import { z } from "zod";
  * 4. Optional Make.com automation can send WhatsApp confirmation.
  */
 
-const CALENDLY_URL = "https://calendly.com/genzzcraft/consultation";
+const CALENDLY_URL = "https://calendly.com/genzzcraft/30min";
 
 const consultationTypes = [
   "Credit Card Guidance",
