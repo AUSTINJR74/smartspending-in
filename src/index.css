@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 220 20% 14%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 14%;
+    --card: 210 20% 98%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 14%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 168 60% 38%;
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 18% 95%;
-    --secondary-foreground: 220 20% 14%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 14% 93%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 168 40% 94%;
-    --accent-foreground: 168 60% 28%;
+    --accent: 221 83% 96%;
+    --accent-foreground: 221 83% 43%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 168 60% 38%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
 
     --radius: 0.75rem;
 
@@ -45,37 +45,41 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(168 60% 38%) 0%, hsl(190 50% 42%) 100%);
-    --card-shadow: 0 2px 12px -2px hsl(220 20% 14% / 0.06);
-    --card-shadow-hover: 0 8px 24px -4px hsl(220 20% 14% / 0.1);
+    --card-shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.04), 0 1px 2px -1px hsl(0 0% 0% / 0.04);
+    --card-shadow-hover: 0 10px 25px -5px hsl(221 83% 53% / 0.08), 0 8px 10px -6px hsl(221 83% 53% / 0.04);
+    --card-shadow-lg: 0 20px 40px -12px hsl(221 83% 53% / 0.12);
   }
 
   .dark {
-    --background: 220 20% 8%;
-    --foreground: 210 20% 96%;
-    --card: 220 18% 12%;
-    --card-foreground: 210 20% 96%;
-    --popover: 220 18% 12%;
-    --popover-foreground: 210 20% 96%;
-    --primary: 168 55% 45%;
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+    --card: 222 40% 10%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 40% 10%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 221 83% 58%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 14% 18%;
-    --secondary-foreground: 210 20% 96%;
-    --muted: 220 14% 18%;
-    --muted-foreground: 215 15% 60%;
-    --accent: 168 30% 18%;
-    --accent-foreground: 168 55% 60%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 220 14% 20%;
-    --input: 220 14% 20%;
-    --ring: 168 55% 45%;
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 221 60% 15%;
+    --accent-foreground: 221 83% 70%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 221 83% 58%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -89,7 +93,7 @@
 
 @layer utilities {
   .section-padding {
-    @apply px-4 py-16 md:px-8 md:py-24 lg:px-16;
+    @apply px-5 py-20 md:px-8 md:py-28 lg:px-16 lg:py-32;
   }
 
   .container-narrow {
@@ -102,11 +106,28 @@
 
   .card-elevated {
     box-shadow: var(--card-shadow);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-elevated:hover {
     box-shadow: var(--card-shadow-hover);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+  }
+
+  .section-label {
+    @apply text-primary font-semibold text-xs uppercase tracking-[0.15em] mb-4 inline-block;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-foreground tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mt-4;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl;
+    box-shadow: var(--card-shadow);
   }
 }
