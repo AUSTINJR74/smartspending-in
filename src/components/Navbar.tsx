@@ -8,7 +8,6 @@ interface NavbarProps {
 }
 
 const homeLinks = [
-  { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Expertise", href: "#services" },
   { label: "Content", href: "#content" },
