@@ -10,9 +10,9 @@ interface NavbarProps {
 const homeLinks = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "Expertise", href: "#services" },
+  { label: "Content", href: "#content" },
   { label: "Insurance", href: "/insurance", isRoute: true },
-  { label: "How It Works", href: "#how-it-works" },
   { label: "Book Call", href: "#booking" },
   { label: "Contact", href: "#contact" },
 ];
