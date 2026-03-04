@@ -6,6 +6,7 @@ import {
   Shield,
   Plane,
 } from "lucide-react";
+import expertiseImg from "@/assets/expertise-cards.png";
 
 const services = [
   {
@@ -57,6 +58,14 @@ const ServicesSection = () => {
             Practical, no-nonsense guidance across the topics that matter most to
             your wallet.
           </p>
+          {/* Illustration */}
+          <div className="flex justify-center mt-8">
+            <img
+              src={expertiseImg}
+              alt="Credit and debit card illustration"
+              className="w-48 h-48 md:w-56 md:h-56 object-contain opacity-90"
+            />
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

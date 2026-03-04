@@ -1,5 +1,6 @@
 import { Instagram, Twitter, Linkedin, Youtube, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import contentImg from "@/assets/content-illustration.png";
 
 const socials = [
   {
@@ -39,11 +40,19 @@ const ContentSection = () => {
             Watch reels, listen to podcasts, and stay updated with the latest
             finance tips.
           </p>
+          {/* Illustration */}
+          <div className="flex justify-center mt-8">
+            <img
+              src={contentImg}
+              alt="Content and social media illustration"
+              className="w-52 h-52 md:w-64 md:h-64 object-contain opacity-90"
+            />
+          </div>
         </div>
 
         {/* Embeds Grid */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-14">
-          {/* Instagram Embed Placeholder */}
+          {/* Instagram Embed */}
           <div className="rounded-2xl border border-border bg-background overflow-hidden card-elevated">
             <div className="aspect-[9/16] max-h-[520px] w-full bg-muted/50 flex flex-col items-center justify-center gap-4 p-8 text-center">
               <Instagram className="w-12 h-12 text-muted-foreground/50" />
@@ -68,7 +77,7 @@ const ContentSection = () => {
             </div>
           </div>
 
-          {/* YouTube Embed Placeholder */}
+          {/* YouTube Embed */}
           <div className="rounded-2xl border border-border bg-background overflow-hidden card-elevated">
             <div className="aspect-[9/16] max-h-[520px] w-full bg-muted/50 flex flex-col items-center justify-center gap-4 p-8 text-center">
               <Youtube className="w-12 h-12 text-muted-foreground/50" />
