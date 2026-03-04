@@ -1,4 +1,5 @@
 import { ClipboardList, CalendarCheck, Bell } from "lucide-react";
+import howItWorksImg from "@/assets/how-it-works-illustration.png";
 
 const steps = [
   {
@@ -31,6 +32,15 @@ const HowItWorksSection = () => {
           <p className="section-subtitle">
             Getting started takes less than 2 minutes. Here's how.
           </p>
+        </div>
+
+        {/* Illustration */}
+        <div className="flex justify-center mb-12">
+          <img
+            src={howItWorksImg}
+            alt="Steps process illustration"
+            className="w-full max-w-md md:max-w-lg object-contain opacity-85 rounded-2xl"
+          />
         </div>
 
         <div className="relative">

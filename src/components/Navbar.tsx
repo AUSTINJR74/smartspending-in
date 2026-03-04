@@ -17,11 +17,10 @@ const homeLinks = [
 ];
 
 const insuranceLinks = [
-  { label: "Home", href: "/", isRoute: true },
-  { label: "About Insurance", href: "#insurance-hero" },
-  { label: "Insurance Types", href: "#insurance-types" },
-  { label: "Book Consultation", href: "#insurance-booking" },
-  { label: "Contact", href: "#insurance-footer" },
+  { label: "About Insurance", href: "#insurance-hero", isRoute: false as const },
+  { label: "Insurance Types", href: "#insurance-types", isRoute: false as const },
+  { label: "Book Consultation", href: "#insurance-booking", isRoute: false as const },
+  { label: "Contact", href: "#insurance-footer", isRoute: false as const },
 ];
 
 const Navbar = ({ variant = "home" }: NavbarProps) => {

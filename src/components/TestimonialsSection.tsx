@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import testimonialsImg from "@/assets/testimonials-illustration.png";
 
 const testimonials = [
   {
@@ -31,6 +32,14 @@ const TestimonialsSection = () => {
           <p className="section-subtitle">
             Don't just take my word for it — hear from clients who've transformed their approach.
           </p>
+          {/* Illustration */}
+          <div className="flex justify-center mt-8">
+            <img
+              src={testimonialsImg}
+              alt="Client testimonials illustration"
+              className="w-full max-w-sm md:max-w-md object-contain opacity-85 rounded-xl"
+            />
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6 md:gap-8">
