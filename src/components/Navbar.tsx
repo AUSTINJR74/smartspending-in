@@ -60,7 +60,7 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-sm"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -73,7 +73,7 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
               navigate("/");
             }
           }}
-          className="font-bold text-xl text-foreground tracking-tight hover:opacity-80 transition-opacity"
+          className="font-bold text-xl text-foreground tracking-tight hover:opacity-80 transition-opacity font-display"
         >
           Smart<span className="gradient-text">Spend</span>
         </a>
@@ -99,7 +99,7 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
               {link.label}
             </a>
           ))}
-          <Button size="sm" className="rounded-xl px-6 gradient-bg border-0 shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-300" asChild>
+          <Button size="sm" className="rounded-xl px-6 gradient-bg text-primary-foreground border-0 shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-300" asChild>
             <a href={bookingHref}>Get Free Guidance</a>
           </Button>
         </div>
@@ -129,7 +129,7 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
                 {link.label}
               </a>
             ))}
-            <Button size="sm" className="mt-3 rounded-xl gradient-bg border-0" asChild>
+            <Button size="sm" className="mt-3 rounded-xl gradient-bg text-primary-foreground border-0" asChild>
               <a href={bookingHref} onClick={() => setMobileOpen(false)}>Get Free Guidance</a>
             </Button>
           </div>

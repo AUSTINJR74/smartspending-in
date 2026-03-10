@@ -9,7 +9,6 @@ const tags = ["Credit Cards", "Debit Cards", "Rewards", "Insurance", "Travel Dea
 const HeroSection = () => {
   return (
     <section id="hero" className="px-6 pt-32 pb-24 md:px-10 md:pt-40 md:pb-32 overflow-hidden relative">
-      {/* Grid pattern + gradient overlay */}
       <div className="absolute inset-0 grid-pattern pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-3xl -translate-y-1/3 translate-x-1/4" />
@@ -19,13 +18,12 @@ const HeroSection = () => {
 
       <div className="container-wide relative z-10">
         <div className="grid md:grid-cols-2 gap-14 md:gap-20 items-center">
-          {/* Left - Text */}
           <div className="text-center md:text-left space-y-7">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium border border-primary/20"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium border border-primary/15"
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               Free financial guidance for everyone
@@ -50,7 +48,6 @@ const HeroSection = () => {
               Simple finance guidance on credit cards, rewards, EMIs, insurance, and travel deals. No jargon — just practical education.
             </motion.p>
 
-            {/* Tags */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -60,14 +57,13 @@ const HeroSection = () => {
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-4 py-2 rounded-full bg-secondary border border-border text-foreground text-sm font-medium hover:border-primary/30 hover:bg-accent transition-all duration-200 cursor-default"
+                  className="px-4 py-2 rounded-full bg-card border border-border text-foreground text-sm font-medium hover:border-primary/30 hover:bg-accent transition-all duration-200 cursor-default"
                 >
                   {tag}
                 </span>
               ))}
             </motion.div>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,7 +94,6 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right - Profile + Floating card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -106,16 +101,10 @@ const HeroSection = () => {
             className="flex justify-center md:justify-end relative"
           >
             <div className="relative">
-              {/* Glow behind image */}
-              <div className="absolute inset-4 rounded-3xl gradient-bg opacity-[0.12] blur-2xl" />
+              <div className="absolute inset-4 rounded-3xl gradient-bg opacity-[0.1] blur-2xl" />
               <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-primary/20 gold-glow">
-                <img
-                  src={profileImg}
-                  alt="Madhan - Finance Educator"
-                  className="w-full h-full object-cover"
-                />
+                <img src={profileImg} alt="Madhan - Finance Educator" className="w-full h-full object-cover" />
               </div>
-              {/* Floating card */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
@@ -123,12 +112,11 @@ const HeroSection = () => {
               >
                 <img src={cardsImg} alt="Finance tools" className="w-full h-auto" />
               </motion.div>
-              {/* Decorative dots */}
               <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full gradient-bg opacity-60" />
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/4 -right-6 w-4 h-4 rounded-full bg-primary/30"
+                className="absolute top-1/4 -right-6 w-4 h-4 rounded-full bg-primary/25"
               />
             </div>
           </motion.div>
