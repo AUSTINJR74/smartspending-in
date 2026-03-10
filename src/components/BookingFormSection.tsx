@@ -160,7 +160,7 @@ const BookingFormSection = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full h-14 rounded-xl gap-2 text-lg font-bold gradient-bg border-0 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
+                className="w-full h-14 rounded-xl gap-2 text-lg font-bold gradient-bg border-0 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow"
               >
                 Submit & Get Guidance
                 <ArrowRight className="w-5 h-5" />
