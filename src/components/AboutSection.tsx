@@ -10,12 +10,11 @@ const points = [
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-card/50" id="about">
+    <section className="section-padding bg-card" id="about">
       <div className="container-wide">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Image */}
-          <div className="relative mx-auto md:mx-0">
-            <div className="w-72 h-80 md:w-80 md:h-96 rounded-3xl overflow-hidden shadow-lg">
+        <div className="grid md:grid-cols-2 gap-14 items-center">
+          <div className="flex justify-center md:justify-start">
+            <div className="w-64 h-72 md:w-72 md:h-80 rounded-2xl overflow-hidden shadow-md">
               <img
                 src={profileImg}
                 alt="Madhan - Finance Educator"
@@ -24,28 +23,22 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Content */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             <div>
-              <p className="section-label">About Me</p>
-              <h2 className="section-title">
-                About <span className="text-primary">Madhan</span>
-              </h2>
+              <p className="section-label">About</p>
+              <h2 className="section-title">About Madhan</h2>
             </div>
-            <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+            <p className="text-muted-foreground leading-relaxed">
               Madhan is a software professional and passionate finance educator
               who believes everyone deserves to understand their money better. He
-              simplifies complex financial topics — from credit card rewards and
-              debit card perks to insurance and EMI traps — making them
-              accessible and actionable for everyday Indians.
+              simplifies complex financial topics — from credit card rewards to
+              insurance and EMI traps — making them accessible for everyday Indians.
             </p>
-            <div className="space-y-3 pt-2">
+            <div className="space-y-2.5">
               {points.map((point, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                  <span className="text-foreground/90 font-medium text-sm">
-                    {point}
-                  </span>
+                  <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                  <span className="text-foreground text-sm font-medium">{point}</span>
                 </div>
               ))}
             </div>
