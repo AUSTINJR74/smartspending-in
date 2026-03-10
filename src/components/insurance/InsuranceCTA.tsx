@@ -18,7 +18,7 @@ const InsuranceCTA = () => {
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               I help clients understand and choose suitable insurance based on their unique needs, family situation, and financial goals. No pushy sales — just honest guidance.
             </p>
-            <Button size="lg" className="text-lg font-bold px-10 h-14 rounded-xl shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.03] transition-all duration-300 gap-2 ring-2 ring-primary/20 ring-offset-2 ring-offset-background" asChild>
+            <Button size="lg" className="text-lg font-bold px-10 h-14 rounded-xl shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.03] transition-all duration-300 gap-2 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow" asChild>
               <a href="#insurance-booking">
                 Book Insurance Consultation
                 <ArrowRight className="w-5 h-5" />

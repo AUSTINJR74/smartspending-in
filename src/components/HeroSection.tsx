@@ -72,7 +72,7 @@ const HeroSection = () => {
             >
               <Button
                 size="lg"
-                className="gradient-bg text-primary-foreground rounded-xl gap-2 px-10 h-14 text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.04] transition-all duration-300 border-0 font-bold ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
+                className="gradient-bg text-primary-foreground rounded-xl gap-2 px-10 h-14 text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.04] transition-all duration-300 border-0 font-bold ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow"
                 asChild
               >
                 <a href="#booking">
