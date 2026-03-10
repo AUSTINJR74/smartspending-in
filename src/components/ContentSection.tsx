@@ -21,6 +21,9 @@ const ContentSection = () => {
             <p className="section-subtitle">
               Watch reels, listen to podcasts, and stay updated with the latest finance tips.
             </p>
+            <div className="flex justify-center mt-10">
+              <img src={contentImg} alt="Social media and podcast content" className="w-44 md:w-56 object-contain" />
+            </div>
           </div>
         </AnimatedSection>
 

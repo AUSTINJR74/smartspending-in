@@ -29,6 +29,9 @@ const ServicesSection = () => {
             <p className="section-subtitle">
               Practical, no-nonsense guidance across the topics that matter most to your wallet.
             </p>
+            <div className="flex justify-center mt-10">
+              <img src={servicesImg} alt="Financial services and card guidance" className="w-48 md:w-64 object-contain" />
+            </div>
           </div>
         </AnimatedSection>
 
