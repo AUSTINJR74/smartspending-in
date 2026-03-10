@@ -1,39 +1,42 @@
-import { Instagram, Mic, BookOpen } from "lucide-react";
+import { Instagram, Mic, BookOpen, Users, Headphones, FileText } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import { motion } from "framer-motion";
 
-const items = [
+const stats = [
   {
-    icon: Instagram,
-    title: "Growing Instagram Community",
-    description: "Sharing daily finance tips and card insights with thousands of followers.",
+    icon: Users,
+    value: "10K+",
+    label: "Community Members",
+    description: "Growing community of financially-aware Indians.",
   },
   {
-    icon: Mic,
-    title: "Finance Podcast Discussions",
-    description: "Deep-dive conversations on credit, rewards, and smart money moves.",
+    icon: Headphones,
+    value: "50+",
+    label: "Podcast Episodes",
+    description: "Deep-dive conversations on smart money moves.",
   },
   {
-    icon: BookOpen,
-    title: "Educational Content Creator",
-    description: "Creating simple, jargon-free content that makes finance accessible to everyone.",
+    icon: FileText,
+    value: "200+",
+    label: "Educational Posts",
+    description: "Reels, guides, and breakdowns published.",
   },
 ];
 
 const TrustSection = () => {
   return (
-    <section className="px-6 py-16 md:px-10 md:py-20 bg-background">
+    <section className="px-6 py-16 md:px-10 md:py-20 bg-background relative">
       <div className="container-wide">
         <StaggerContainer className="grid sm:grid-cols-3 gap-6 md:gap-8">
-          {items.map((item, i) => (
+          {stats.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-4 p-7 rounded-2xl bg-card border border-border card-elevated gradient-border h-full">
-                <div className="p-3 rounded-xl bg-accent shrink-0">
-                  <item.icon className="w-5 h-5 text-primary" />
+              <div className="group text-center p-8 rounded-2xl bg-card border border-border card-elevated gradient-border h-full">
+                <div className="inline-flex p-3.5 rounded-2xl bg-accent mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
-                </div>
+                <p className="text-3xl md:text-4xl font-bold gradient-text mb-1">{item.value}</p>
+                <p className="font-semibold text-foreground text-sm mb-1.5">{item.label}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             </StaggerItem>
           ))}

@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import profileImg from "@/assets/madhan-profile.png";
@@ -9,10 +9,12 @@ const tags = ["Credit Cards", "Debit Cards", "Rewards", "Insurance", "Travel Dea
 const HeroSection = () => {
   return (
     <section id="hero" className="px-6 pt-32 pb-24 md:px-10 md:pt-40 md:pb-32 overflow-hidden relative">
-      {/* Subtle gradient background */}
+      {/* Grid pattern + gradient overlay */}
+      <div className="absolute inset-0 grid-pattern pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent/60 blur-3xl -translate-y-1/3 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/40 blur-3xl translate-y-1/3 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-3xl -translate-y-1/3 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/50 blur-3xl translate-y-1/3 -translate-x-1/4" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
       </div>
 
       <div className="container-wide relative z-10">
@@ -35,7 +37,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.12]"
             >
-              Helping Indians use Credit & Debit Cards the{" "}
+              Helping Indians Use Credit & Debit Cards the{" "}
               <span className="gradient-text">Smart Way</span>
             </motion.h1>
 
@@ -45,7 +47,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="text-lg text-muted-foreground max-w-lg leading-relaxed"
             >
-              Simple finance guidance for everyday users. No jargon, no product selling — just practical education.
+              Simple finance guidance on credit cards, rewards, EMIs, insurance, and travel deals. No jargon — just practical education.
             </motion.p>
 
             {/* Tags */}
@@ -85,10 +87,13 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-xl px-8 h-13 text-base hover:bg-accent hover:border-primary/20 hover:scale-[1.02] transition-all duration-300"
+                className="rounded-xl px-8 h-13 text-base gap-2 hover:bg-accent hover:border-primary/20 hover:scale-[1.02] transition-all duration-300"
                 asChild
               >
-                <a href="#content">View Latest Content</a>
+                <a href="#content">
+                  <Play className="w-4 h-4" />
+                  Watch Latest Content
+                </a>
               </Button>
             </motion.div>
           </div>
@@ -101,7 +106,9 @@ const HeroSection = () => {
             className="flex justify-center md:justify-end relative"
           >
             <div className="relative">
-              <div className="w-72 h-72 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border">
+              {/* Glow behind image */}
+              <div className="absolute inset-4 rounded-3xl gradient-bg opacity-[0.08] blur-2xl" />
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border">
                 <img
                   src={profileImg}
                   alt="Madhan - Finance Educator"
@@ -116,8 +123,13 @@ const HeroSection = () => {
               >
                 <img src={cardsImg} alt="Finance tools" className="w-full h-auto" />
               </motion.div>
-              {/* Decorative dot */}
+              {/* Decorative dots */}
               <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full gradient-bg opacity-60" />
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute top-1/4 -right-6 w-4 h-4 rounded-full bg-primary/20"
+              />
             </div>
           </motion.div>
         </div>
