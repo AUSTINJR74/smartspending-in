@@ -113,7 +113,7 @@ const InsuranceForm = () => {
           <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
             Redirecting to Calendly in <span className="font-bold text-primary">{countdown}s</span>
           </p>
-          <Button size="lg" className="gap-2 text-base rounded-xl hover:scale-[1.02] transition-all animate-fade-in-up" style={{ animationDelay: "0.2s" }} asChild>
+          <Button size="lg" className="gap-2 text-lg font-bold px-10 h-14 rounded-xl shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.03] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow animate-fade-in-up" style={{ animationDelay: "0.2s" }} asChild>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
               <Calendar className="w-4 h-4" />
               Open Calendly Now
