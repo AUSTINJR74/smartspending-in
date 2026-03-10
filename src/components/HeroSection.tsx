@@ -72,12 +72,12 @@ const HeroSection = () => {
             >
               <Button
                 size="lg"
-                className="gradient-bg text-primary-foreground rounded-xl gap-2 px-8 h-13 text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.03] transition-all duration-300 border-0 font-semibold"
+                className="gradient-bg text-primary-foreground rounded-xl gap-2 px-10 h-14 text-lg shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.04] transition-all duration-300 border-0 font-bold ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
                 asChild
               >
                 <a href="#booking">
                   Get Free Guidance
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-5 h-5" />
                 </a>
               </Button>
               <Button
