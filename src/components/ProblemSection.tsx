@@ -6,6 +6,8 @@ import {
   CreditCard,
   AlertTriangle,
 } from "lucide-react";
+import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import problemsImg from "@/assets/problems-illustration.png";
 
 const mistakes = [
   { icon: Percent, title: "Paying unnecessary interest", description: "Not clearing dues on time leads to hidden charges." },
@@ -20,28 +22,32 @@ const ProblemSection = () => {
   return (
     <section className="section-padding bg-card" id="problems">
       <div className="container-wide">
-        <div className="text-center mb-14">
-          <p className="section-label">The Problem</p>
-          <h2 className="section-title">Common Card Mistakes People Make</h2>
-          <p className="section-subtitle">
-            Most people lose money simply because no one taught them the basics.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {mistakes.map((item, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-xl bg-background border border-border card-elevated"
-            >
-              <div className="p-2.5 rounded-lg bg-accent inline-flex mb-4">
-                <item.icon className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+        <AnimatedSection>
+          <div className="text-center mb-14">
+            <p className="section-label">The Problem</p>
+            <h2 className="section-title">Common Card Mistakes People Make</h2>
+            <p className="section-subtitle">
+              Most people lose money simply because no one taught them the basics.
+            </p>
+            <div className="flex justify-center mt-8">
+              <img src={problemsImg} alt="Common financial mistakes" className="w-40 md:w-52 object-contain" />
             </div>
+          </div>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {mistakes.map((item, i) => (
+            <StaggerItem key={i}>
+              <div className="p-6 rounded-xl bg-background border border-border card-elevated h-full">
+                <div className="p-2.5 rounded-lg bg-accent inline-flex mb-4">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
