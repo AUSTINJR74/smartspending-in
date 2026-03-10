@@ -4,6 +4,7 @@ import TrustSection from "@/components/TrustSection";
 import ProblemSection from "@/components/ProblemSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import FeaturedTopicsSection from "@/components/FeaturedTopicsSection";
 import ContentSection from "@/components/ContentSection";
 import BookingFormSection from "@/components/BookingFormSection";
 import PhilosophySection from "@/components/PhilosophySection";
@@ -25,6 +26,8 @@ const Index = () => {
       <AboutSection />
       <div className="border-t border-border" />
       <ServicesSection />
+      <div className="border-t border-border" />
+      <FeaturedTopicsSection />
       <div className="border-t border-border" />
       <BookingFormSection />
       <div className="border-t border-border" />
