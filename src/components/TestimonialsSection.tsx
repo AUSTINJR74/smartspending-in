@@ -1,63 +1,54 @@
 import { Star, Quote } from "lucide-react";
-import testimonialsImg from "@/assets/testimonials-illustration.png";
 
 const testimonials = [
   {
     name: "Priya Sharma",
     role: "Small Business Owner",
-    text: "The consultation was incredibly insightful. I got actionable advice that helped me save significantly on my business expenses.",
+    text: "The guidance was incredibly insightful. I learned how to maximize my credit card rewards without paying extra fees.",
     avatar: "PS",
   },
   {
     name: "Rahul Verma",
     role: "IT Professional",
-    text: "Clear, practical, and no-nonsense guidance. The session helped me understand my finances much better and plan ahead confidently.",
+    text: "Clear, practical, and no-nonsense. The session helped me pick the right card for my spending habits.",
     avatar: "RV",
   },
   {
     name: "Anita Desai",
     role: "Freelance Designer",
-    text: "Best consultation I've ever had. The advice was personalized and I left the call knowing exactly what steps to take next.",
+    text: "Best financial guidance I've received. I now understand insurance and card benefits so much better.",
     avatar: "AD",
   },
 ];
 
 const TestimonialsSection = () => {
   return (
-    <section className="section-padding bg-card/50" id="testimonials">
+    <section className="section-padding bg-card" id="testimonials">
       <div className="container-wide">
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <p className="section-label">Testimonials</p>
           <h2 className="section-title">Trusted by Hundreds</h2>
           <p className="section-subtitle">
-            Don't just take my word for it — hear from clients who've transformed their approach.
+            Hear from people who've transformed their financial approach.
           </p>
-          {/* Illustration */}
-          <div className="flex justify-center mt-8">
-            <img
-              src={testimonialsImg}
-              alt="Client testimonials illustration"
-              className="w-full max-w-sm md:max-w-md object-contain opacity-85 rounded-xl"
-            />
-          </div>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <div key={i} className="relative p-7 rounded-2xl bg-background border border-border card-elevated flex flex-col">
-              <Quote className="w-8 h-8 text-primary/15 mb-4" />
-              <div className="flex gap-0.5 mb-4">
+            <div key={i} className="p-7 rounded-xl bg-background border border-border card-elevated flex flex-col">
+              <Quote className="w-7 h-7 text-primary/20 mb-4" />
+              <div className="flex gap-0.5 mb-3">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-foreground/80 text-sm leading-relaxed flex-1 mb-6">"{t.text}"</p>
+              <p className="text-foreground/80 text-sm leading-relaxed flex-1 mb-5">"{t.text}"</p>
               <div className="flex items-center gap-3 pt-4 border-t border-border">
-                <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-heading font-semibold text-sm">
+                <div className="w-9 h-9 rounded-full bg-accent text-primary flex items-center justify-center font-semibold text-xs">
                   {t.avatar}
                 </div>
                 <div>
-                  <p className="font-heading font-semibold text-foreground text-sm">{t.name}</p>
+                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
               </div>

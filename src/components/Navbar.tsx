@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, TrendingUp } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   variant?: "home" | "insurance";
@@ -12,8 +12,7 @@ const homeLinks = [
   { label: "Expertise", href: "#services" },
   { label: "Content", href: "#content" },
   { label: "Insurance", href: "/insurance", isRoute: true },
-  { label: "Book Call", href: "#booking" },
-  { label: "Contact", href: "#contact" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const insuranceLinks = [
@@ -61,12 +60,11 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm"
+          ? "bg-background/90 backdrop-blur-lg border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <div className="container-wide flex items-center justify-between h-16 md:h-[4.5rem] px-5 md:px-8">
-        {/* Logo */}
+      <div className="container-wide flex items-center justify-between h-16 px-5 md:px-8">
         <a
           href={variant === "insurance" ? "/" : "#hero"}
           onClick={(e) => {
@@ -75,18 +73,13 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
               navigate("/");
             }
           }}
-          className="flex items-center gap-2 group"
+          className="font-bold text-lg text-foreground tracking-tight"
         >
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-            <TrendingUp className="w-4.5 h-4.5 text-primary-foreground" />
-          </div>
-          <span className="font-heading font-bold text-base md:text-lg text-foreground tracking-tight">
-            SmartSpend<span className="text-muted-foreground font-normal text-sm"> with Madhan</span>
-          </span>
+          SmartSpend
         </a>
 
         {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -97,21 +90,20 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
                   handleClick(link);
                 }
               }}
-              className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 ${
+              className={`text-sm font-medium transition-colors ${
                 !link.isRoute && activeSection === link.href
-                  ? "text-foreground after:w-full"
-                  : "text-muted-foreground hover:text-foreground after:w-0 hover:after:w-full"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {link.label}
             </a>
           ))}
-          <Button size="sm" className="rounded-lg px-5 ml-1 hover:scale-[1.02] transition-all" asChild>
-            <a href={bookingHref}>Book Consultation</a>
+          <Button size="sm" className="rounded-lg px-5" asChild>
+            <a href={bookingHref}>Get Free Guidance</a>
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="lg:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -121,31 +113,24 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border animate-fade-in">
+        <div className="lg:hidden bg-background border-b border-border">
           <div className="flex flex-col gap-1 px-5 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.isRoute ? link.href : link.href}
                 onClick={(e) => {
-                  if (link.isRoute) {
-                    e.preventDefault();
-                  }
+                  if (link.isRoute) e.preventDefault();
                   handleClick(link);
                 }}
-                className={`text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
-                  !link.isRoute && activeSection === link.href
-                    ? "text-foreground bg-accent"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
+                className="text-sm font-medium py-2.5 px-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
               >
                 {link.label}
               </a>
             ))}
             <Button size="sm" className="mt-2 rounded-lg" asChild>
-              <a href={bookingHref} onClick={() => setMobileOpen(false)}>Book Consultation</a>
+              <a href={bookingHref} onClick={() => setMobileOpen(false)}>Get Free Guidance</a>
             </Button>
           </div>
         </div>
