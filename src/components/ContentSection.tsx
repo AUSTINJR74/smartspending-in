@@ -1,6 +1,7 @@
 import { Instagram, Youtube, ExternalLink, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import contentImg from "@/assets/content-illustration.png";
 
 const socials = [
   { icon: Instagram, label: "Instagram", href: "https://instagram.com/smartspending.in" },
