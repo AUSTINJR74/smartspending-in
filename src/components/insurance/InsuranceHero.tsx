@@ -24,7 +24,7 @@ const InsuranceHero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <Button size="lg" className="text-base px-8 h-13 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 gap-2" asChild>
+          <Button size="lg" className="text-lg font-bold px-10 h-14 rounded-xl shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.03] transition-all duration-300 gap-2 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow" asChild>
             <a href="#insurance-booking">
               Book Insurance Consultation
               <ArrowRight className="w-4 h-4" />
