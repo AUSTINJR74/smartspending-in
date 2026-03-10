@@ -58,7 +58,7 @@ const FeaturedTopicsSection = () => {
         <StaggerContainer className="grid sm:grid-cols-2 gap-5 md:gap-6">
           {topics.map((topic, i) => (
             <StaggerItem key={i}>
-              <div className="group p-7 md:p-8 rounded-2xl bg-background border border-border card-elevated gradient-border h-full flex flex-col">
+              <Link to={topic.slug} className="group block p-7 md:p-8 rounded-2xl bg-background border border-border card-elevated gradient-border h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-lg bg-accent group-hover:scale-110 transition-transform duration-300">
                     <topic.icon className="w-4 h-4 text-primary" />
@@ -76,12 +76,12 @@ const FeaturedTopicsSection = () => {
                   {topic.excerpt}
                 </p>
                 <div className="mt-5 pt-4 border-t border-border">
-                  <Link to={topic.slug} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all">
                     Read more
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  </span>
                 </div>
-              </div>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerContainer>
