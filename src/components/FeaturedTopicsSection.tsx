@@ -1,4 +1,5 @@
 import { TrendingUp, CreditCard, Shield, Percent, Bookmark, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
 import topicsImg from "@/assets/topics-illustration.png";
 
@@ -9,6 +10,7 @@ const topics = [
     title: "Best Credit Cards for Beginners in 2025",
     excerpt: "A simple breakdown of which card suits your lifestyle — whether you're a student, salaried, or self-employed.",
     readTime: "4 min read",
+    slug: "/blog/best-credit-cards-beginners-2025",
   },
   {
     icon: Shield,
@@ -16,6 +18,7 @@ const topics = [
     title: "5 Insurance Myths That Cost You Money",
     excerpt: "From 'I'm too young for insurance' to 'employer cover is enough' — myths debunked with real examples.",
     readTime: "5 min read",
+    slug: "/blog/insurance-myths",
   },
   {
     icon: Percent,
@@ -23,6 +26,7 @@ const topics = [
     title: "The Truth About No-Cost EMI",
     excerpt: "It sounds free, but hidden charges can add up. Learn how to spot the real cost before you click 'Buy Now'.",
     readTime: "3 min read",
+    slug: "/blog/truth-about-no-cost-emi",
   },
   {
     icon: TrendingUp,
@@ -30,6 +34,7 @@ const topics = [
     title: "How to Maximize Credit Card Rewards",
     excerpt: "Most people leave rewards on the table. Simple strategies to earn 2-5x more from your everyday spending.",
     readTime: "4 min read",
+    slug: "/blog/maximize-credit-card-rewards",
   },
 ];
 
@@ -71,10 +76,10 @@ const FeaturedTopicsSection = () => {
                   {topic.excerpt}
                 </p>
                 <div className="mt-5 pt-4 border-t border-border">
-                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all cursor-pointer">
+                  <Link to={topic.slug} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all">
                     Read more
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                  </Link>
                 </div>
               </div>
             </StaggerItem>
