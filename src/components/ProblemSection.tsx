@@ -20,30 +20,30 @@ const mistakes = [
 
 const ProblemSection = () => {
   return (
-    <section className="section-padding bg-card" id="problems">
+    <section className="section-padding bg-secondary/50" id="problems">
       <div className="container-wide">
         <AnimatedSection>
-          <div className="text-center mb-14">
+          <div className="text-center mb-16">
             <p className="section-label">The Problem</p>
             <h2 className="section-title">Common Card Mistakes People Make</h2>
             <p className="section-subtitle">
               Most people lose money simply because no one taught them the basics.
             </p>
-            <div className="flex justify-center mt-8">
-              <img src={problemsImg} alt="Common financial mistakes" className="w-40 md:w-52 object-contain" />
+            <div className="flex justify-center mt-10">
+              <img src={problemsImg} alt="Common financial mistakes" className="w-44 md:w-56 object-contain opacity-90" />
             </div>
           </div>
         </AnimatedSection>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {mistakes.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="p-6 rounded-xl bg-background border border-border card-elevated h-full">
-                <div className="p-2.5 rounded-lg bg-accent inline-flex mb-4">
+              <div className="group p-7 rounded-2xl bg-background border border-border card-elevated gradient-border h-full">
+                <div className="p-3 rounded-xl bg-accent inline-flex mb-5 group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             </StaggerItem>
           ))}

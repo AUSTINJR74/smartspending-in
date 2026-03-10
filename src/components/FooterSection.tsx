@@ -14,17 +14,17 @@ const FooterSection = () => {
     <footer className="bg-foreground text-background" id="contact">
       {/* CTA Banner */}
       <AnimatedSection>
-        <div className="px-5 md:px-8 py-16">
-          <div className="container-narrow text-center space-y-5">
-            <h2 className="text-2xl md:text-3xl font-bold">
+        <div className="px-6 md:px-10 py-20">
+          <div className="container-narrow text-center space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
               Ready to Make Smarter Financial Decisions?
             </h2>
-            <p className="text-background/60 max-w-md mx-auto">
+            <p className="text-background/55 max-w-md mx-auto text-lg">
               Book your free consultation and take the first step toward financial clarity.
             </p>
             <Button
               size="lg"
-              className="bg-background text-foreground hover:bg-background/90 rounded-xl gap-2 h-12 px-8 text-base shadow-lg hover:scale-[1.02] transition-all duration-300"
+              className="bg-background text-foreground hover:bg-background/90 rounded-xl gap-2 h-13 px-9 text-base shadow-lg hover:scale-[1.03] transition-all duration-300"
               asChild
             >
               <a href="#booking">
@@ -37,22 +37,22 @@ const FooterSection = () => {
       </AnimatedSection>
 
       <div className="border-t border-background/10">
-        <div className="container-wide px-5 md:px-8 py-10">
-          <div className="grid sm:grid-cols-3 gap-8 mb-8">
-            <div className="space-y-2">
-              <p className="font-bold text-lg">SmartSpend</p>
-              <p className="text-background/50 text-sm">Madhan — Finance Educator</p>
+        <div className="container-wide px-6 md:px-10 py-12">
+          <div className="grid sm:grid-cols-3 gap-10 mb-10">
+            <div className="space-y-3">
+              <p className="font-bold text-xl tracking-tight">SmartSpend</p>
+              <p className="text-background/50 text-sm leading-relaxed">Madhan — Finance Educator<br />Helping Indians master their money.</p>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-3">
               <p className="font-semibold text-sm">Quick Links</p>
-              <div className="flex flex-col gap-1.5 text-sm text-background/50">
+              <div className="flex flex-col gap-2 text-sm text-background/50">
                 <a href="#about" className="hover:text-background transition-colors w-fit">About</a>
                 <a href="#services" className="hover:text-background transition-colors w-fit">Expertise</a>
                 <a href="#booking" className="hover:text-background transition-colors w-fit">Get Guidance</a>
                 <a href="#faq" className="hover:text-background transition-colors w-fit">FAQ</a>
               </div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-3">
               <p className="font-semibold text-sm">Contact</p>
               <a href="mailto:contact@smartspending.in" className="flex items-center gap-2 text-sm text-background/50 hover:text-background transition-colors w-fit">
                 <Mail className="w-4 h-4" /> contact@smartspending.in
@@ -60,10 +60,17 @@ const FooterSection = () => {
             </div>
           </div>
 
-          <div className="border-t border-background/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex gap-2">
+          <div className="border-t border-background/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex gap-2.5">
               {socials.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="p-2 rounded-lg bg-background/5 hover:bg-background/15 transition-colors">
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="p-2.5 rounded-xl bg-background/5 hover:bg-background/15 transition-all duration-200 hover:scale-110"
+                >
                   <s.icon className="w-4 h-4" />
                 </a>
               ))}

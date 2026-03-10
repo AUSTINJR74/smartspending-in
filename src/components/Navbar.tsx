@@ -60,11 +60,11 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-lg border-b border-border shadow-sm"
+          ? "bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <div className="container-wide flex items-center justify-between h-16 px-5 md:px-8">
+      <div className="container-wide flex items-center justify-between h-[4.5rem] px-6 md:px-10">
         <a
           href={variant === "insurance" ? "/" : "#hero"}
           onClick={(e) => {
@@ -73,13 +73,13 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
               navigate("/");
             }
           }}
-          className="font-bold text-lg text-foreground tracking-tight"
+          className="font-bold text-xl text-foreground tracking-tight hover:opacity-80 transition-opacity"
         >
-          SmartSpend
+          Smart<span className="gradient-text">Spend</span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-9">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -90,7 +90,7 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
                   handleClick(link);
                 }
               }}
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-all duration-200 ${
                 !link.isRoute && activeSection === link.href
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground"
@@ -99,13 +99,13 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
               {link.label}
             </a>
           ))}
-          <Button size="sm" className="rounded-lg px-5" asChild>
+          <Button size="sm" className="rounded-xl px-6 gradient-bg border-0 shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02] transition-all duration-300" asChild>
             <a href={bookingHref}>Get Free Guidance</a>
           </Button>
         </div>
 
         <button
-          className="lg:hidden p-2 text-foreground"
+          className="lg:hidden p-2.5 text-foreground hover:bg-muted rounded-xl transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -114,8 +114,8 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-background border-b border-border">
-          <div className="flex flex-col gap-1 px-5 py-4">
+        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border">
+          <div className="flex flex-col gap-1.5 px-6 py-5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -124,12 +124,12 @@ const Navbar = ({ variant = "home" }: NavbarProps) => {
                   if (link.isRoute) e.preventDefault();
                   handleClick(link);
                 }}
-                className="text-sm font-medium py-2.5 px-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                className="text-sm font-medium py-3 px-4 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
               >
                 {link.label}
               </a>
             ))}
-            <Button size="sm" className="mt-2 rounded-lg" asChild>
+            <Button size="sm" className="mt-3 rounded-xl gradient-bg border-0" asChild>
               <a href={bookingHref} onClick={() => setMobileOpen(false)}>Get Free Guidance</a>
             </Button>
           </div>
