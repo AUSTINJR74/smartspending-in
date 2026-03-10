@@ -160,10 +160,10 @@ const BookingFormSection = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full h-13 rounded-xl gap-2 text-base gradient-bg border-0 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.01] transition-all duration-300"
+                className="w-full h-14 rounded-xl gap-2 text-lg font-bold gradient-bg border-0 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
               >
                 Submit & Get Guidance
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </Button>
 
               <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-1">
