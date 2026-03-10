@@ -24,6 +24,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/crm" element={<CRM />} />
+          <Route path="/blog/best-credit-cards-beginners-2025" element={<CreditCardsForBeginners />} />
+          <Route path="/blog/insurance-myths" element={<InsuranceMyths />} />
+          <Route path="/blog/truth-about-no-cost-emi" element={<NoCostEmi />} />
+          <Route path="/blog/maximize-credit-card-rewards" element={<MaximizeCreditCardRewards />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

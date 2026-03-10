@@ -76,10 +76,10 @@ const FeaturedTopicsSection = () => {
                   {topic.excerpt}
                 </p>
                 <div className="mt-5 pt-4 border-t border-border">
-                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all cursor-pointer">
+                  <Link to={topic.slug} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-2.5 transition-all">
                     Read more
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                  </Link>
                 </div>
               </div>
             </StaggerItem>
