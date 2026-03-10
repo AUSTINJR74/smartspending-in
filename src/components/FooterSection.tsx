@@ -16,7 +16,7 @@ const FooterSection = () => {
       <AnimatedSection>
         <div className="px-6 md:px-10 py-20">
           <div className="container-narrow text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-display">
               Ready to Make Smarter Financial Decisions?
             </h2>
             <p className="text-background/55 max-w-md mx-auto text-lg">
@@ -24,7 +24,7 @@ const FooterSection = () => {
             </p>
             <Button
               size="lg"
-              className="bg-background text-foreground hover:bg-background/90 rounded-xl gap-2 h-13 px-9 text-base shadow-lg hover:scale-[1.03] transition-all duration-300"
+              className="gradient-bg text-primary-foreground hover:opacity-90 rounded-xl gap-2 h-13 px-9 text-base shadow-lg hover:scale-[1.03] transition-all duration-300 border-0"
               asChild
             >
               <a href="#booking">
@@ -40,7 +40,7 @@ const FooterSection = () => {
         <div className="container-wide px-6 md:px-10 py-12">
           <div className="grid sm:grid-cols-3 gap-10 mb-10">
             <div className="space-y-3">
-              <p className="font-bold text-xl tracking-tight">SmartSpend</p>
+              <p className="font-bold text-xl tracking-tight font-display">SmartSpend</p>
               <p className="text-background/50 text-sm leading-relaxed">Madhan — Finance Educator<br />Helping Indians master their money.</p>
             </div>
             <div className="space-y-3">
