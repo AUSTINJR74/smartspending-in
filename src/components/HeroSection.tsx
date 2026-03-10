@@ -83,7 +83,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-xl px-8 h-13 text-base gap-2 border-border hover:bg-accent hover:border-primary/20 hover:scale-[1.02] transition-all duration-300"
+                className="rounded-xl px-10 h-14 text-lg font-bold gap-2 border-border hover:bg-accent hover:border-primary/20 hover:scale-[1.02] transition-all duration-300"
                 asChild
               >
                 <a href="#content">
