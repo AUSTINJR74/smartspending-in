@@ -25,7 +25,7 @@ const stats = [
 
 const TrustSection = () => {
   return (
-    <section className="px-6 py-16 md:px-10 md:py-20 bg-background relative">
+    <section className="section-padding bg-background relative">
       <div className="container-wide">
         <StaggerContainer className="grid sm:grid-cols-3 gap-6 md:gap-8">
           {stats.map((item, i) => (
