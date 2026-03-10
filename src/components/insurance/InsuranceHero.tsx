@@ -30,7 +30,7 @@ const InsuranceHero = () => {
               <ArrowRight className="w-4 h-4" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="text-base px-8 h-13 rounded-xl gap-2 hover:scale-[1.02] transition-all duration-300" asChild>
+          <Button size="lg" variant="outline" className="text-lg font-bold px-10 h-14 rounded-xl gap-2 hover:scale-[1.02] transition-all duration-300" asChild>
             <a href="#insurance-types">
               Explore Insurance Types
             </a>

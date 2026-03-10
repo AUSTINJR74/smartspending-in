@@ -211,7 +211,7 @@ const InsuranceForm = () => {
             <Textarea id="ins-message" name="message" placeholder="E.g., I need guidance on choosing the best health insurance plan for my family..." rows={3} maxLength={1000} className="rounded-xl" />
           </div>
 
-          <Button type="submit" size="lg" className="w-full h-13 text-base rounded-xl text-lg gap-2 hover:scale-[1.01] transition-all shadow-md hover:shadow-lg">
+          <Button type="submit" size="lg" className="w-full h-14 rounded-xl gap-2 text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow">
             Submit & Book Your Call
             <ArrowRight className="w-4 h-4" />
           </Button>

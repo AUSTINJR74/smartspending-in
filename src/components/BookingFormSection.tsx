@@ -78,7 +78,7 @@ const BookingFormSection = () => {
           <p className="text-muted-foreground">
             Redirecting to Calendly in <span className="font-bold text-primary">{countdown}s</span>
           </p>
-          <Button size="lg" className="gap-2 rounded-xl gradient-bg shadow-lg shadow-primary/25 border-0" asChild>
+          <Button size="lg" className="gap-2 text-lg font-bold px-10 h-14 rounded-xl gradient-bg shadow-xl shadow-primary/30 border-0 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow" asChild>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
               <Calendar className="w-4 h-4" />
               Open Calendly Now
