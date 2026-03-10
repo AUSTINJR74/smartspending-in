@@ -34,6 +34,9 @@ const TestimonialsSection = () => {
             <p className="section-subtitle">
               Hear from people who've transformed their financial approach.
             </p>
+            <div className="flex justify-center mt-10">
+              <img src={testimonialsImg} alt="Happy customers giving reviews" className="w-40 md:w-52 object-contain" />
+            </div>
           </div>
         </AnimatedSection>
 
