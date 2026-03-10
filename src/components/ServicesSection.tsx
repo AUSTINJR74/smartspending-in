@@ -6,6 +6,7 @@ import {
   Shield,
   Plane,
 } from "lucide-react";
+import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
 
 const services = [
   { icon: CreditCard, title: "Credit Card Guidance", description: "Choose the right card, maximize rewards, and avoid unnecessary fees." },
@@ -20,28 +21,29 @@ const ServicesSection = () => {
   return (
     <section className="section-padding bg-background" id="services">
       <div className="container-wide">
-        <div className="text-center mb-14">
-          <p className="section-label">Expertise</p>
-          <h2 className="section-title">What I Help With</h2>
-          <p className="section-subtitle">
-            Practical, no-nonsense guidance across the topics that matter most to your wallet.
-          </p>
-        </div>
+        <AnimatedSection>
+          <div className="text-center mb-14">
+            <p className="section-label">Expertise</p>
+            <h2 className="section-title">What I Help With</h2>
+            <p className="section-subtitle">
+              Practical, no-nonsense guidance across the topics that matter most to your wallet.
+            </p>
+          </div>
+        </AnimatedSection>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
-            <div
-              key={i}
-              className="group p-7 rounded-xl bg-card border border-border card-elevated"
-            >
-              <div className="p-3 rounded-lg bg-accent inline-flex mb-5 group-hover:bg-primary/10 transition-colors">
-                <service.icon className="w-5 h-5 text-primary" />
+            <StaggerItem key={i}>
+              <div className="group p-7 rounded-xl bg-card border border-border card-elevated h-full">
+                <div className="p-3 rounded-lg bg-accent inline-flex mb-5 group-hover:bg-primary/10 transition-colors">
+                  <service.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
-              <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
