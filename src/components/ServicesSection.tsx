@@ -7,6 +7,7 @@ import {
   Plane,
 } from "lucide-react";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import servicesImg from "@/assets/services-illustration.png";
 
 const services = [
   { icon: CreditCard, title: "Credit Card Guidance", description: "Choose the right card, maximize rewards, and avoid unnecessary fees." },
@@ -28,6 +29,9 @@ const ServicesSection = () => {
             <p className="section-subtitle">
               Practical, no-nonsense guidance across the topics that matter most to your wallet.
             </p>
+            <div className="flex justify-center mt-10">
+              <img src={servicesImg} alt="Financial services and card guidance" className="w-48 md:w-64 object-contain" />
+            </div>
           </div>
         </AnimatedSection>
 

@@ -1,6 +1,7 @@
 import { Instagram, Youtube, ExternalLink, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import contentImg from "@/assets/content-illustration.png";
 
 const socials = [
   { icon: Instagram, label: "Instagram", href: "https://instagram.com/smartspending.in" },
@@ -20,6 +21,9 @@ const ContentSection = () => {
             <p className="section-subtitle">
               Watch reels, listen to podcasts, and stay updated with the latest finance tips.
             </p>
+            <div className="flex justify-center mt-10">
+              <img src={contentImg} alt="Social media and podcast content" className="w-44 md:w-56 object-contain" />
+            </div>
           </div>
         </AnimatedSection>
 

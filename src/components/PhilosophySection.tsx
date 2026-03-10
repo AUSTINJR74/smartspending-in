@@ -1,4 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
+import philosophyImg from "@/assets/philosophy-illustration.png";
 
 const PhilosophySection = () => {
   return (
@@ -8,6 +9,9 @@ const PhilosophySection = () => {
           <p className="section-label">Philosophy</p>
           <h2 className="section-title">My Approach</h2>
           <div className="w-12 h-1 gradient-bg rounded-full mx-auto" />
+          <div className="flex justify-center">
+            <img src={philosophyImg} alt="Financial education philosophy" className="w-36 md:w-44 object-contain" />
+          </div>
           <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
             I believe financial awareness shouldn't be complicated or intimidating.
             My content focuses on simple explanations, responsible card usage, and
