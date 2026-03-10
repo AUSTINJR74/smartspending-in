@@ -12,8 +12,8 @@ const HeroSection = () => {
       {/* Grid pattern + gradient overlay */}
       <div className="absolute inset-0 grid-pattern pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-3xl -translate-y-1/3 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/50 blur-3xl translate-y-1/3 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-3xl -translate-y-1/3 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.04] blur-3xl translate-y-1/3 -translate-x-1/4" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
       </div>
 
@@ -25,7 +25,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium border border-primary/10"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium border border-primary/20"
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               Free financial guidance for everyone
@@ -35,7 +35,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.12]"
+              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.12] font-display"
             >
               Helping Indians Use Credit & Debit Cards the{" "}
               <span className="gradient-text">Smart Way</span>
@@ -60,7 +60,7 @@ const HeroSection = () => {
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-4 py-2 rounded-full bg-background border border-border text-foreground text-sm font-medium hover:border-primary/30 hover:bg-accent transition-all duration-200 cursor-default"
+                  className="px-4 py-2 rounded-full bg-secondary border border-border text-foreground text-sm font-medium hover:border-primary/30 hover:bg-accent transition-all duration-200 cursor-default"
                 >
                   {tag}
                 </span>
@@ -76,7 +76,7 @@ const HeroSection = () => {
             >
               <Button
                 size="lg"
-                className="gradient-bg rounded-xl gap-2 px-8 h-13 text-base shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] transition-all duration-300 border-0"
+                className="gradient-bg text-primary-foreground rounded-xl gap-2 px-8 h-13 text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.03] transition-all duration-300 border-0 font-semibold"
                 asChild
               >
                 <a href="#booking">
@@ -87,7 +87,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-xl px-8 h-13 text-base gap-2 hover:bg-accent hover:border-primary/20 hover:scale-[1.02] transition-all duration-300"
+                className="rounded-xl px-8 h-13 text-base gap-2 border-border hover:bg-accent hover:border-primary/20 hover:scale-[1.02] transition-all duration-300"
                 asChild
               >
                 <a href="#content">
@@ -107,8 +107,8 @@ const HeroSection = () => {
           >
             <div className="relative">
               {/* Glow behind image */}
-              <div className="absolute inset-4 rounded-3xl gradient-bg opacity-[0.08] blur-2xl" />
-              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border">
+              <div className="absolute inset-4 rounded-3xl gradient-bg opacity-[0.12] blur-2xl" />
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-primary/20 gold-glow">
                 <img
                   src={profileImg}
                   alt="Madhan - Finance Educator"
@@ -119,7 +119,7 @@ const HeroSection = () => {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-5 -left-8 md:-left-14 w-28 md:w-36 bg-background rounded-2xl shadow-xl border border-border/80 p-3"
+                className="absolute -bottom-5 -left-8 md:-left-14 w-28 md:w-36 bg-card rounded-2xl shadow-xl border border-border p-3"
               >
                 <img src={cardsImg} alt="Finance tools" className="w-full h-auto" />
               </motion.div>
@@ -128,7 +128,7 @@ const HeroSection = () => {
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/4 -right-6 w-4 h-4 rounded-full bg-primary/20"
+                className="absolute top-1/4 -right-6 w-4 h-4 rounded-full bg-primary/30"
               />
             </div>
           </motion.div>
