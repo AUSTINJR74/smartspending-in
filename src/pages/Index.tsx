@@ -27,6 +27,8 @@ const Index = () => {
       <div className="border-t border-border" />
       <ServicesSection />
       <div className="border-t border-border" />
+      <FeaturedTopicsSection />
+      <div className="border-t border-border" />
       <BookingFormSection />
       <div className="border-t border-border" />
       <ContentSection />
