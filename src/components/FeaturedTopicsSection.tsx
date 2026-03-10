@@ -1,4 +1,5 @@
 import { TrendingUp, CreditCard, Shield, Percent, Bookmark, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
 import topicsImg from "@/assets/topics-illustration.png";
 
