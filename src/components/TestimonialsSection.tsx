@@ -27,7 +27,7 @@ const TestimonialsSection = () => {
     <section className="section-padding bg-background" id="testimonials">
       <div className="container-wide">
         <AnimatedSection>
-          <div className="text-center mb-14">
+          <div className="text-center mb-16">
             <p className="section-label">Testimonials</p>
             <h2 className="section-title">Trusted by Hundreds</h2>
             <p className="section-subtitle">
@@ -36,19 +36,19 @@ const TestimonialsSection = () => {
           </div>
         </AnimatedSection>
 
-        <StaggerContainer className="grid sm:grid-cols-3 gap-6">
+        <StaggerContainer className="grid sm:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((t, i) => (
             <StaggerItem key={i}>
-              <div className="p-7 rounded-xl bg-card border border-border card-elevated flex flex-col h-full">
-                <Quote className="w-7 h-7 text-primary/20 mb-4" />
-                <div className="flex gap-0.5 mb-3">
+              <div className="p-8 rounded-2xl bg-card border border-border card-elevated gradient-border flex flex-col h-full">
+                <Quote className="w-8 h-8 text-primary/15 mb-5" />
+                <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
+                    <Star key={j} className="w-4 h-4 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="text-foreground/80 text-sm leading-relaxed flex-1 mb-5">"{t.text}"</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="w-9 h-9 rounded-full bg-accent text-primary flex items-center justify-center font-semibold text-xs">
+                <p className="text-foreground/80 text-sm leading-relaxed flex-1 mb-6">"{t.text}"</p>
+                <div className="flex items-center gap-3 pt-5 border-t border-border">
+                  <div className="w-10 h-10 rounded-full gradient-bg text-primary-foreground flex items-center justify-center font-semibold text-xs">
                     {t.avatar}
                   </div>
                   <div>

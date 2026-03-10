@@ -8,16 +8,22 @@ const tags = ["Credit Cards", "Debit Cards", "Rewards", "Insurance", "Travel Dea
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="px-5 pt-28 pb-20 md:px-8 md:pt-36 md:pb-28 overflow-hidden">
-      <div className="container-wide">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <section id="hero" className="px-6 pt-32 pb-24 md:px-10 md:pt-40 md:pb-32 overflow-hidden relative">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent/60 blur-3xl -translate-y-1/3 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/40 blur-3xl translate-y-1/3 -translate-x-1/4" />
+      </div>
+
+      <div className="container-wide relative z-10">
+        <div className="grid md:grid-cols-2 gap-14 md:gap-20 items-center">
           {/* Left - Text */}
-          <div className="text-center md:text-left space-y-6">
+          <div className="text-center md:text-left space-y-7">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium border border-primary/10"
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               Free financial guidance for everyone
@@ -27,10 +33,10 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-foreground tracking-tight leading-[1.15]"
+              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-foreground tracking-tight leading-[1.12]"
             >
               Helping Indians use Credit & Debit Cards the{" "}
-              <span className="text-primary">Smart Way</span>
+              <span className="gradient-text">Smart Way</span>
             </motion.h1>
 
             <motion.p
@@ -47,12 +53,12 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-wrap gap-2 justify-center md:justify-start"
+              className="flex flex-wrap gap-2.5 justify-center md:justify-start"
             >
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3.5 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium"
+                  className="px-4 py-2 rounded-full bg-background border border-border text-foreground text-sm font-medium hover:border-primary/30 hover:bg-accent transition-all duration-200 cursor-default"
                 >
                   {tag}
                 </span>
@@ -64,11 +70,11 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start pt-2"
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-3"
             >
               <Button
                 size="lg"
-                className="rounded-xl gap-2 px-8 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] transition-all duration-300"
+                className="gradient-bg rounded-xl gap-2 px-8 h-13 text-base shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] transition-all duration-300 border-0"
                 asChild
               >
                 <a href="#booking">
@@ -76,35 +82,42 @@ const HeroSection = () => {
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-xl px-8 h-12 text-base hover:scale-[1.02] transition-all duration-300" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-xl px-8 h-13 text-base hover:bg-accent hover:border-primary/20 hover:scale-[1.02] transition-all duration-300"
+                asChild
+              >
                 <a href="#content">View Latest Content</a>
               </Button>
             </motion.div>
           </div>
 
-          {/* Right - Profile + Floating card illustration */}
+          {/* Right - Profile + Floating card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center md:justify-end relative"
           >
             <div className="relative">
-              <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-xl">
+              <div className="w-72 h-72 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border">
                 <img
                   src={profileImg}
                   alt="Madhan - Finance Educator"
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Floating illustration badge */}
+              {/* Floating card */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-10 md:-left-16 w-28 md:w-36 bg-background rounded-xl shadow-lg border border-border p-2"
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-5 -left-8 md:-left-14 w-28 md:w-36 bg-background rounded-2xl shadow-xl border border-border/80 p-3"
               >
                 <img src={cardsImg} alt="Finance tools" className="w-full h-auto" />
               </motion.div>
+              {/* Decorative dot */}
+              <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full gradient-bg opacity-60" />
             </div>
           </motion.div>
         </div>

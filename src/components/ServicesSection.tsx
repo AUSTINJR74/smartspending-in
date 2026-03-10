@@ -22,7 +22,7 @@ const ServicesSection = () => {
     <section className="section-padding bg-background" id="services">
       <div className="container-wide">
         <AnimatedSection>
-          <div className="text-center mb-14">
+          <div className="text-center mb-16">
             <p className="section-label">Expertise</p>
             <h2 className="section-title">What I Help With</h2>
             <p className="section-subtitle">
@@ -31,14 +31,14 @@ const ServicesSection = () => {
           </div>
         </AnimatedSection>
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <div className="group p-7 rounded-xl bg-card border border-border card-elevated h-full">
-                <div className="p-3 rounded-lg bg-accent inline-flex mb-5 group-hover:bg-primary/10 transition-colors">
+              <div className="group p-8 rounded-2xl bg-card border border-border card-elevated gradient-border h-full">
+                <div className="p-3.5 rounded-xl bg-accent inline-flex mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>
+                <h3 className="font-semibold text-foreground text-lg mb-2.5">{service.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
               </div>
             </StaggerItem>

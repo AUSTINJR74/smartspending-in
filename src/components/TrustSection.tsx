@@ -1,5 +1,5 @@
 import { Instagram, Mic, BookOpen } from "lucide-react";
-import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import { StaggerContainer, StaggerItem } from "./AnimatedSection";
 
 const items = [
   {
@@ -21,17 +21,17 @@ const items = [
 
 const TrustSection = () => {
   return (
-    <section className="px-5 py-16 md:px-8 md:py-20 bg-background">
+    <section className="px-6 py-16 md:px-10 md:py-20 bg-background">
       <div className="container-wide">
-        <StaggerContainer className="grid sm:grid-cols-3 gap-6">
+        <StaggerContainer className="grid sm:grid-cols-3 gap-6 md:gap-8">
           {items.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border card-elevated h-full">
-                <div className="p-2.5 rounded-lg bg-accent shrink-0">
+              <div className="flex items-start gap-4 p-7 rounded-2xl bg-card border border-border card-elevated gradient-border h-full">
+                <div className="p-3 rounded-xl bg-accent shrink-0">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
+                  <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </div>
