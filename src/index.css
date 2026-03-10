@@ -152,4 +152,17 @@
   .gold-glow {
     box-shadow: 0 0 30px hsl(38 75% 48% / 0.18), 0 0 60px hsl(38 75% 48% / 0.06);
   }
+
+  .cta-glow {
+    animation: cta-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes cta-pulse {
+    0%, 100% {
+      box-shadow: 0 0 12px hsl(265 75% 60% / 0.3), 0 4px 20px hsl(265 75% 60% / 0.15);
+    }
+    50% {
+      box-shadow: 0 0 24px hsl(265 75% 60% / 0.5), 0 4px 32px hsl(265 75% 60% / 0.25);
+    }
+  }
 }
