@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Insurance from "./pages/Insurance";
 import CRM from "./pages/CRM";
+import CreditCardsForBeginners from "./pages/blog/CreditCardsForBeginners";
+import InsuranceMyths from "./pages/blog/InsuranceMyths";
+import NoCostEmi from "./pages/blog/NoCostEmi";
+import MaximizeCreditCardRewards from "./pages/blog/MaximizeCreditCardRewards";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
