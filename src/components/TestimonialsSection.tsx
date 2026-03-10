@@ -1,5 +1,6 @@
 import { Star, Quote } from "lucide-react";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import testimonialsImg from "@/assets/testimonials-illustration.png";
 
 const testimonials = [
   {

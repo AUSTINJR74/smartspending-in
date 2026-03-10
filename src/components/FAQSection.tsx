@@ -1,4 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
+import faqImg from "@/assets/faq-illustration.png";
 
 const FAQSection = () => {
   return (
@@ -9,6 +10,9 @@ const FAQSection = () => {
             <p className="section-label">FAQ</p>
             <h2 className="section-title">Common Questions</h2>
             <p className="section-subtitle">Everything you need to know before reaching out.</p>
+            <div className="flex justify-center mt-10">
+              <img src={faqImg} alt="Frequently asked questions" className="w-36 md:w-44 object-contain" />
+            </div>
           </div>
         </AnimatedSection>
 
