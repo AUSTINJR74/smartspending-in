@@ -21,10 +21,21 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
+const buildCalendlyUrl = (data: { name: string; phone: string; email: string; city: string; question: string }) => {
+  const params = new URLSearchParams();
+  params.set("name", data.name);
+  if (data.email) params.set("email", data.email);
+  params.set("a1", data.phone);
+  params.set("a2", data.city);
+  params.set("a3", data.question);
+  return `${CALENDLY_BASE}?${params.toString()}`;
+};
+
 const BookingFormSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [countdown, setCountdown] = useState(2);
+  const [calendlyUrl, setCalendlyUrl] = useState(CALENDLY_BASE);
 
   useEffect(() => {
     if (!submitted) return;
@@ -32,14 +43,14 @@ const BookingFormSection = () => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          window.open(CALENDLY_URL, "_blank");
+          window.open(calendlyUrl, "_blank");
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [submitted]);
+  }, [submitted, calendlyUrl]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,6 +73,7 @@ const BookingFormSection = () => {
       return;
     }
     setErrors({});
+    setCalendlyUrl(buildCalendlyUrl(raw));
     setSubmitted(true);
   };
 
