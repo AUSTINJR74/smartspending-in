@@ -8,7 +8,7 @@ import { z } from "zod";
 import AnimatedSection from "./AnimatedSection";
 import guidanceImg from "@/assets/guidance-illustration.png";
 
-const CALENDLY_URL = "https://calendly.com/genzzcraft/30min";
+const CALENDLY_BASE = "https://calendly.com/genzzcraft/consultation";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
