@@ -1,9 +1,9 @@
-import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import FooterSection from "./FooterSection";
 import AnimatedSection from "./AnimatedSection";
+import BookingFormSection from "./BookingFormSection";
 
 interface BlogLayoutProps {
   title: string;
