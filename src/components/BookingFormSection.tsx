@@ -23,7 +23,8 @@ import { z } from "zod";
 import AnimatedSection from "./AnimatedSection";
 import guidanceImg from "@/assets/guidance-illustration.png";
 
-const WEBHOOK_URL = "https://hook.us2.make.com/jnfmu3v6secqxdknlsgpplvx39tichwa";
+const WEBHOOK_URL = "https://hook.us2.make.com/bonu3pn6xhzjaecjy3vk0ik02xvpr6gq";
+const MAKE_API_KEY = "F4EyEzWq4umOrc4zpT8PNxq4xFigSB6N";
 const CALENDLY_BASE = "https://calendly.com/genzzcraft/30min";
 
 const consultationTypes = [
