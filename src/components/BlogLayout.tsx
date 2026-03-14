@@ -1,9 +1,9 @@
-import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import FooterSection from "./FooterSection";
 import AnimatedSection from "./AnimatedSection";
+import BookingFormSection from "./BookingFormSection";
 
 interface BlogLayoutProps {
   title: string;
@@ -80,29 +80,8 @@ const BlogLayout = ({ title, tag, readTime, date, heroImage, children }: BlogLay
         </div>
       </section>
 
-      {/* Lead CTA */}
-      <section className="py-16 md:py-20 bg-accent/50">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <AnimatedSection>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 font-display">
-              Confused about credit cards or rewards?
-            </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Get simple, no-cost guidance from Madhan — personalized to your needs.
-            </p>
-            <Button
-              size="lg"
-              className="h-14 px-10 rounded-xl gap-2 text-lg font-bold gradient-bg border-0 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow"
-              asChild
-            >
-              <a href="/#booking">
-                Get Free Guidance
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </Button>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* Lead Form */}
+      <BookingFormSection />
 
       <FooterSection />
     </div>
