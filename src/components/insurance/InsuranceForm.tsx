@@ -92,7 +92,7 @@ const InsuranceForm = () => {
     if (errors[errorKey]) setErrors((e) => ({ ...e, [errorKey]: undefined }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const raw = {
@@ -114,8 +114,38 @@ const InsuranceForm = () => {
       return;
     }
     setErrors({});
-    setCalendlyUrl(buildCalendlyUrl(raw));
-    setSubmitted(true);
+
+    try {
+      const payload = {
+        name: raw.name,
+        email: raw.email,
+        phone: raw.phone,
+        consultation_type: raw.consultationTypes.join(", "),
+        discussion_topic: raw.discussionTopics.join(", "),
+        requirement: raw.message,
+      };
+
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "x-make-apikey": MAKE_API_KEY,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit. Please try again.");
+      }
+
+      setCalendlyUrl(buildCalendlyUrl(raw));
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Form submission error:", err);
+      // Fallback: still redirect to Calendly even if webhook fails
+      setCalendlyUrl(buildCalendlyUrl(raw));
+      setSubmitted(true);
+    }
   };
 
   if (submitted) {
