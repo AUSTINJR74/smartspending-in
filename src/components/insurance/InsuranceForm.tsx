@@ -43,12 +43,27 @@ const formSchema = z.object({
 
 type FormErrors = Partial<Record<keyof z.infer<typeof formSchema>, string>>;
 
+const buildCalendlyUrl = (data: {
+  name: string; phone: string; email: string;
+  consultationTypes: string[]; discussionTopics: string[]; message: string;
+}) => {
+  const params = new URLSearchParams();
+  params.set("name", data.name);
+  params.set("email", data.email);
+  params.set("a1", data.phone);
+  params.set("a2", data.consultationTypes.join(", "));
+  params.set("a3", data.discussionTopics.join(", "));
+  params.set("a4", data.message);
+  return `${CALENDLY_BASE}?${params.toString()}`;
+};
+
 const InsuranceForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [countdown, setCountdown] = useState(2);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  const [calendlyUrl, setCalendlyUrl] = useState(CALENDLY_BASE);
 
   useEffect(() => {
     if (!submitted) return;
@@ -56,14 +71,14 @@ const InsuranceForm = () => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          window.open(CALENDLY_URL, "_blank");
+          window.open(calendlyUrl, "_blank");
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [submitted]);
+  }, [submitted, calendlyUrl]);
 
   const toggleItem = (
     item: string,
@@ -97,6 +112,7 @@ const InsuranceForm = () => {
       return;
     }
     setErrors({});
+    setCalendlyUrl(buildCalendlyUrl(raw));
     setSubmitted(true);
   };
 
