@@ -8,7 +8,7 @@ import { z } from "zod";
 import AnimatedSection from "./AnimatedSection";
 import guidanceImg from "@/assets/guidance-illustration.png";
 
-const CALENDLY_URL = "https://calendly.com/genzzcraft/30min";
+const CALENDLY_BASE = "https://calendly.com/genzzcraft/consultation";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -21,10 +21,21 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
+const buildCalendlyUrl = (data: { name: string; phone: string; email: string; city: string; question: string }) => {
+  const params = new URLSearchParams();
+  params.set("name", data.name);
+  if (data.email) params.set("email", data.email);
+  params.set("a1", data.phone);
+  params.set("a2", data.city);
+  params.set("a3", data.question);
+  return `${CALENDLY_BASE}?${params.toString()}`;
+};
+
 const BookingFormSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [countdown, setCountdown] = useState(2);
+  const [calendlyUrl, setCalendlyUrl] = useState(CALENDLY_BASE);
 
   useEffect(() => {
     if (!submitted) return;
@@ -32,14 +43,14 @@ const BookingFormSection = () => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          window.open(CALENDLY_URL, "_blank");
+          window.open(calendlyUrl, "_blank");
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [submitted]);
+  }, [submitted, calendlyUrl]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,6 +73,7 @@ const BookingFormSection = () => {
       return;
     }
     setErrors({});
+    setCalendlyUrl(buildCalendlyUrl(raw));
     setSubmitted(true);
   };
 
@@ -79,7 +91,7 @@ const BookingFormSection = () => {
             Redirecting to Calendly in <span className="font-bold text-primary">{countdown}s</span>
           </p>
           <Button size="lg" className="gap-2 text-lg font-bold px-10 h-14 rounded-xl gradient-bg shadow-xl shadow-primary/30 border-0 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow" asChild>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
               <Calendar className="w-4 h-4" />
               Open Calendly Now
             </a>
