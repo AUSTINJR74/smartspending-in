@@ -123,6 +123,8 @@ const InsuranceForm = () => {
         consultation_type: raw.consultationTypes.join(", "),
         discussion_topic: raw.discussionTopics.join(", "),
         requirement: raw.message,
+        status: "Booked",
+        booking_time: new Date().toISOString(),
       };
 
       const response = await fetch(WEBHOOK_URL, {

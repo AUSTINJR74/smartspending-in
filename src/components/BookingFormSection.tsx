@@ -161,6 +161,8 @@ const BookingFormSection = () => {
         consultation_type: raw.consultationType,
         discussion_topic: raw.discussionTopic,
         requirement: raw.requirement,
+        status: "Booked",
+        booking_time: new Date().toISOString(),
         param7: raw.param7,
         param8: raw.param8,
         param9: raw.param9,
