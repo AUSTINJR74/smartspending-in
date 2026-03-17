@@ -15,7 +15,7 @@ import { z } from "zod";
  * All FREE tools.
  */
 
-const WEBHOOK_URL = "https://hook.us2.make.com/bonu3pn6xhzjaecjy3vk0ik02xvpr6gq";
+const WEBHOOK_URL = "https://hook.us2.make.com/uhlislksyvwsox4p4m76u4da6b5f77bw";
 const MAKE_API_KEY = "F4EyEzWq4umOrc4zpT8PNxq4xFigSB6N";
 const CALENDLY_BASE = "https://calendly.com/genzzcraft/30min";
 
@@ -123,6 +123,8 @@ const InsuranceForm = () => {
         consultation_type: raw.consultationTypes.join(", "),
         discussion_topic: raw.discussionTopics.join(", "),
         requirement: raw.message,
+        status: "Booked",
+        booking_time: new Date().toISOString(),
       };
 
       const response = await fetch(WEBHOOK_URL, {

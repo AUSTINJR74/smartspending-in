@@ -23,7 +23,7 @@ import { z } from "zod";
 import AnimatedSection from "./AnimatedSection";
 import guidanceImg from "@/assets/guidance-illustration.png";
 
-const WEBHOOK_URL = "https://hook.us2.make.com/bonu3pn6xhzjaecjy3vk0ik02xvpr6gq";
+const WEBHOOK_URL = "https://hook.us2.make.com/uhlislksyvwsox4p4m76u4da6b5f77bw";
 const MAKE_API_KEY = "F4EyEzWq4umOrc4zpT8PNxq4xFigSB6N";
 const CALENDLY_BASE = "https://calendly.com/genzzcraft/30min";
 
@@ -161,6 +161,8 @@ const BookingFormSection = () => {
         consultation_type: raw.consultationType,
         discussion_topic: raw.discussionTopic,
         requirement: raw.requirement,
+        status: "Booked",
+        booking_time: new Date().toISOString(),
         param7: raw.param7,
         param8: raw.param8,
         param9: raw.param9,
