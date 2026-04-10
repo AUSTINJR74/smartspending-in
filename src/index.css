@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 20% 92%;
+    --foreground: 265 30% 15%;
+
+    --card: 270 20% 99%;
+    --card-foreground: 265 30% 15%;
+
+    --popover: 270 20% 99%;
+    --popover-foreground: 265 30% 15%;
+
+    --primary: 265 75% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 268 25% 94%;
+    --secondary-foreground: 265 25% 18%;
+
+    --muted: 268 18% 93%;
+    --muted-foreground: 265 10% 45%;
+
+    --accent: 268 30% 92%;
+    --accent-foreground: 265 70% 50%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 268 18% 88%;
+    --input: 268 18% 88%;
+    --ring: 265 75% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 270 18% 9%;
+    --sidebar-foreground: 265 8% 50%;
+    --sidebar-primary: 265 75% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 268 22% 16%;
+    --sidebar-accent-foreground: 260 10% 92%;
+    --sidebar-border: 270 12% 20%;
+    --sidebar-ring: 265 75% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(265 75% 60%), hsl(290 65% 55%));
+    --gradient-warm: linear-gradient(135deg, hsl(265 75% 60%), hsl(240 70% 62%));
+    --gradient-soft: linear-gradient(135deg, hsl(270 15% 14%), hsl(268 12% 18%));
+    --card-shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.3), 0 1px 2px -1px hsl(0 0% 0% / 0.25);
+    --card-shadow-hover: 0 12px 28px -6px hsl(265 75% 60% / 0.18), 0 6px 12px -4px hsl(265 75% 60% / 0.1);
+    --card-shadow-lg: 0 20px 40px -12px hsl(265 75% 60% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-6 py-14 md:px-10 md:py-20 lg:px-16 lg:py-24;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .card-elevated {
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  .section-label {
+    @apply text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-4 inline-block;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-foreground tracking-tight leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-base md:text-lg max-w-xl mx-auto mt-4 leading-relaxed;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 30px hsl(38 75% 48% / 0.18), 0 0 60px hsl(38 75% 48% / 0.06);
+  }
+
+  .cta-glow {
+    animation: cta-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes cta-pulse {
+    0%, 100% {
+      box-shadow: 0 0 12px hsl(265 75% 60% / 0.3), 0 4px 20px hsl(265 75% 60% / 0.15);
+    }
+    50% {
+      box-shadow: 0 0 24px hsl(265 75% 60% / 0.5), 0 4px 32px hsl(265 75% 60% / 0.25);
+    }
+  }
+}
