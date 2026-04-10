@@ -1,46 +1,28 @@
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import TrustSection from "@/components/TrustSection";
-import ProblemSection from "@/components/ProblemSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import FeaturedTopicsSection from "@/components/FeaturedTopicsSection";
-import ContentSection from "@/components/ContentSection";
+import LandingNavbar from "@/components/landing/LandingNavbar";
+import HeroSection from "@/components/landing/HeroSection";
+import TrustMetrics from "@/components/landing/TrustMetrics";
+import BenefitsSection from "@/components/landing/BenefitsSection";
+import HowItWorks from "@/components/landing/HowItWorks";
+import MidCtaBanner from "@/components/landing/MidCtaBanner";
 import BookingFormSection from "@/components/BookingFormSection";
-import PhilosophySection from "@/components/PhilosophySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import FAQSection from "@/components/FAQSection";
-import DisclaimerSection from "@/components/DisclaimerSection";
-import FooterSection from "@/components/FooterSection";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import FAQSection from "@/components/landing/FAQSection";
+import FinalCtaBanner from "@/components/landing/FinalCtaBanner";
+import FooterSection from "@/components/landing/FooterSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <LandingNavbar />
       <HeroSection />
-      <div className="border-t border-border" />
-      <TrustSection />
-      <div className="border-t border-border" />
-      <ProblemSection />
-      <div className="border-t border-border" />
-      <AboutSection />
-      <div className="border-t border-border" />
-      <ServicesSection />
-      <div className="border-t border-border" />
-      <FeaturedTopicsSection />
-      <div className="border-t border-border" />
+      <TrustMetrics />
+      <BenefitsSection />
+      <HowItWorks />
+      <MidCtaBanner />
       <BookingFormSection />
-      <div className="border-t border-border" />
-      <ContentSection />
-      <div className="border-t border-border" />
-      <PhilosophySection />
-      <div className="border-t border-border" />
       <TestimonialsSection />
-      <div className="border-t border-border" />
       <FAQSection />
-      <div className="border-t border-border" />
-      <DisclaimerSection />
-      <div className="border-t border-border" />
+      <FinalCtaBanner />
       <FooterSection />
     </div>
   );

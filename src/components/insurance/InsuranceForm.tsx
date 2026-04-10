@@ -6,6 +6,9 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle, Calendar, ArrowRight, Shield, AlertCircle } from "lucide-react";
 import { z } from "zod";
+import siteContent from "@/data/siteContent";
+
+const { form: formContent } = siteContent.insurance;
 
 /**
  * AUTOMATION ARCHITECTURE:
@@ -19,20 +22,8 @@ const WEBHOOK_URL = "https://hook.us2.make.com/uhlislksyvwsox4p4m76u4da6b5f77bw"
 const MAKE_API_KEY = "F4EyEzWq4umOrc4zpT8PNxq4xFigSB6N";
 const CALENDLY_BASE = "https://calendly.com/genzzcraft/30min";
 
-const consultationTypes = [
-  "Life Insurance",
-  "Health Insurance",
-  "General Insurance",
-  "Policy Upgrade Advice",
-];
-
-const discussionTopics = [
-  "New Policy",
-  "Existing Policy Review",
-  "Claim Assistance",
-  "Coverage Comparison",
-  "Premium Optimization",
-];
+const consultationTypes = formContent.consultationTypes;
+const discussionTopics = formContent.discussionTopics;
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
@@ -150,21 +141,21 @@ const InsuranceForm = () => {
 
   if (submitted) {
     return (
-      <section className="section-padding bg-background" id="insurance-booking">
+      <section className="section-padding bg-white" id="insurance-booking">
         <div className="container-narrow max-w-lg text-center space-y-6">
-          <div className="inline-flex p-5 rounded-full bg-accent text-primary animate-scale-in">
+          <div className="inline-flex p-5 rounded-full bg-emerald-50 text-emerald-500 animate-scale-in">
             <CheckCircle className="w-14 h-14" />
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground animate-fade-in-up">
-            Great! Please select your preferred time slot.
+            {formContent.successTitle}
           </h2>
           <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            Redirecting to Calendly in <span className="font-bold text-primary">{countdown}s</span>
+            {formContent.successSubtext} <span className="font-bold text-primary">{countdown}s</span>
           </p>
-          <Button size="lg" className="gap-2 text-lg font-bold px-10 h-14 rounded-xl shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.03] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow animate-fade-in-up" style={{ animationDelay: "0.2s" }} asChild>
+          <Button size="lg" className="gap-2 text-lg font-bold px-10 h-14 rounded-full gradient-bg-green border-0 shadow-xl shadow-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/40 hover:scale-[1.03] transition-all duration-300 cta-glow animate-fade-in-up" style={{ animationDelay: "0.2s" }} asChild>
             <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
               <Calendar className="w-4 h-4" />
-              Open Calendly Now
+              {formContent.successButton}
             </a>
           </Button>
         </div>
@@ -173,15 +164,17 @@ const InsuranceForm = () => {
   }
 
   return (
-    <section className="section-padding bg-card/50 relative" id="insurance-booking">
-      <div className="container-narrow max-w-xl relative z-10">
+    <section className="section-padding bg-background relative overflow-hidden" id="insurance-booking">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-emerald-50 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-blue-50 blur-[100px] pointer-events-none" />
+      <div className="container-narrow max-w-xl relative z-20">
         <div className="text-center mb-10">
-          <p className="section-label">Book Now</p>
-          <h2 className="section-title mb-3">Insurance Consultation</h2>
-          <p className="section-subtitle mt-0">Tell us about your insurance needs.</p>
+          <p className="section-label">{formContent.sectionLabel}</p>
+          <h2 className="section-title mb-3">{formContent.sectionTitle}</h2>
+          <p className="section-subtitle mt-0">{formContent.sectionSubtitle}</p>
         </div>
 
-        <form onSubmit={handleSubmit} noValidate className="space-y-5 bg-background p-7 md:p-9 rounded-2xl border border-border shadow-lg">
+        <form onSubmit={handleSubmit} noValidate className="space-y-5 bg-white p-7 md:p-9 rounded-3xl border border-border/60 shadow-xl shadow-primary/5">
           {/* Name */}
           <div className="space-y-1.5">
             <Label htmlFor="ins-name" className="text-sm font-medium">Full Name *</Label>
@@ -259,14 +252,14 @@ const InsuranceForm = () => {
             <Textarea id="ins-message" name="message" placeholder="E.g., I need guidance on choosing the best health insurance plan for my family..." rows={3} maxLength={1000} className="rounded-xl" />
           </div>
 
-          <Button type="submit" size="lg" className="w-full h-14 rounded-xl gap-2 text-lg font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow">
-            Submit & Book Your Call
+          <Button type="submit" size="lg" className="w-full h-14 rounded-full gap-2 text-lg font-bold gradient-bg border-0 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 cta-glow">
+            {formContent.submitButton}
             <ArrowRight className="w-4 h-4" />
           </Button>
 
           <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-1">
             <Shield className="w-3.5 h-3.5" />
-            Your information is secure and will never be shared.
+            {formContent.securityNote}
           </div>
         </form>
       </div>

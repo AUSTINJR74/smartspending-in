@@ -22,29 +22,16 @@ import {
 import { z } from "zod";
 import AnimatedSection from "./AnimatedSection";
 import guidanceImg from "@/assets/guidance-illustration.png";
+import siteContent from "@/data/siteContent";
+
+const content = siteContent.booking;
 
 const WEBHOOK_URL = "https://hook.us2.make.com/uhlislksyvwsox4p4m76u4da6b5f77bw";
 const MAKE_API_KEY = "F4EyEzWq4umOrc4zpT8PNxq4xFigSB6N";
 const CALENDLY_BASE = "https://calendly.com/genzzcraft/30min";
 
-const consultationTypes = [
-  "Life Insurance",
-  "Health Insurance",
-  "General Insurance",
-  "Credit Cards",
-  "Policy Upgrade Advice",
-  "Other",
-];
-
-const discussionTopics = [
-  "New Policy",
-  "Existing Policy Review",
-  "Claim Assistance",
-  "Coverage Comparison",
-  "Premium Optimization",
-  "Rewards & Benefits",
-  "Other",
-];
+const consultationTypes = content.consultationTypes;
+const discussionTopics = content.discussionTopics;
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
@@ -197,21 +184,21 @@ const BookingFormSection = () => {
             <CheckCircle className="w-14 h-14" />
           </div>
           <h2 className="text-2xl md:text-3xl font-bold font-heading text-foreground animate-fade-in-up">
-            Great! Please select your preferred call time.
+            {content.successTitle}
           </h2>
           <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            Redirecting to Calendly in{" "}
+            {content.successSubtext}{" "}
             <span className="font-bold text-primary">{countdown}s</span>
           </p>
           <Button
             size="lg"
-            className="gap-2 text-lg font-bold px-10 h-14 rounded-xl gradient-bg border-0 shadow-xl shadow-primary/30 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow animate-fade-in-up"
+            className="gap-2 text-lg font-bold px-10 h-14 rounded-full gradient-bg border-0 shadow-xl shadow-primary/30 cta-glow animate-fade-in-up"
             style={{ animationDelay: "0.2s" }}
             asChild
           >
             <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
               <Calendar className="w-4 h-4" />
-              Open Calendly Now
+              {content.successButton}
             </a>
           </Button>
         </div>
@@ -220,20 +207,21 @@ const BookingFormSection = () => {
   }
 
   return (
-    <section className="section-padding relative overflow-hidden" id="booking">
-      <div className="absolute inset-0 bg-accent/40 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
+    <section className="section-padding relative overflow-hidden bg-background" id="booking">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-50 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-purple-50 blur-[100px]" />
+      </div>
 
       <div className="container-wide relative z-10">
         <div className="grid md:grid-cols-2 gap-14 md:gap-16 items-center">
           {/* Left - Pitch */}
           <AnimatedSection>
             <div className="text-center md:text-left space-y-6">
-              <p className="section-label">Connect</p>
-              <h2 className="section-title">Get Personal Guidance</h2>
+              <p className="section-label">{content.sectionLabel}</p>
+              <h2 className="section-title">{content.sectionTitle}</h2>
               <p className="text-muted-foreground leading-relaxed text-base">
-                Have questions about credit cards, insurance, or rewards? Fill in your details and
-                get personalized, no-cost guidance from Madhan.
+                {content.sectionDescription}
               </p>
               <img
                 src={guidanceImg}
@@ -242,7 +230,7 @@ const BookingFormSection = () => {
               />
               <div className="flex items-center gap-3 text-sm text-muted-foreground justify-center md:justify-start">
                 <Sparkles className="w-4 h-4 text-primary" />
-                <span>100% free — no strings attached</span>
+                <span>{content.freeNote}</span>
               </div>
             </div>
           </AnimatedSection>
@@ -252,17 +240,17 @@ const BookingFormSection = () => {
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="space-y-5 bg-background p-8 md:p-10 rounded-2xl border border-border shadow-lg"
+              className="space-y-5 bg-white p-8 md:p-10 rounded-3xl border border-border/60 shadow-xl shadow-primary/5"
             >
               {/* Name */}
               <div className="space-y-1.5">
                 <Label htmlFor="booking-name" className="text-sm font-medium">
-                  Full Name *
+                  {content.fields.name.label}
                 </Label>
                 <Input
                   id="booking-name"
                   name="name"
-                  placeholder="Your name"
+                  placeholder={content.fields.name.placeholder}
                   maxLength={100}
                   className={`h-12 rounded-xl border-border/80 focus:border-primary ${errors.name ? "border-destructive" : ""}`}
                 />
@@ -272,13 +260,13 @@ const BookingFormSection = () => {
               {/* Phone */}
               <div className="space-y-1.5">
                 <Label htmlFor="booking-phone" className="text-sm font-medium">
-                  Phone (with country code) *
+                  {content.fields.phone.label}
                 </Label>
                 <Input
                   id="booking-phone"
                   name="phone"
                   type="tel"
-                  placeholder="+91 9876543210"
+                  placeholder={content.fields.phone.placeholder}
                   maxLength={16}
                   className={`h-12 rounded-xl border-border/80 focus:border-primary ${errors.phone ? "border-destructive" : ""}`}
                 />
@@ -288,13 +276,13 @@ const BookingFormSection = () => {
               {/* Email */}
               <div className="space-y-1.5">
                 <Label htmlFor="booking-email" className="text-sm font-medium">
-                  Email Address *
+                  {content.fields.email.label}
                 </Label>
                 <Input
                   id="booking-email"
                   name="email"
                   type="email"
-                  placeholder="name@example.com"
+                  placeholder={content.fields.email.placeholder}
                   maxLength={255}
                   className={`h-12 rounded-xl border-border/80 focus:border-primary ${errors.email ? "border-destructive" : ""}`}
                 />
@@ -303,10 +291,10 @@ const BookingFormSection = () => {
 
               {/* Consultation Type */}
               <div className="space-y-1.5">
-                <Label className="text-sm font-medium">Consultation Type *</Label>
+                <Label className="text-sm font-medium">{content.fields.consultationType.label}</Label>
                 <Select value={consultationType} onValueChange={(v) => { setConsultationType(v); if (errors.consultationType) setErrors((e) => ({ ...e, consultationType: undefined })); }}>
                   <SelectTrigger className={`h-12 rounded-xl border-border/80 ${errors.consultationType ? "border-destructive" : ""}`}>
-                    <SelectValue placeholder="Select consultation type" />
+                    <SelectValue placeholder={content.fields.consultationType.placeholder} />
                   </SelectTrigger>
                   <SelectContent>
                     {consultationTypes.map((type) => (
@@ -319,10 +307,10 @@ const BookingFormSection = () => {
 
               {/* Discussion Topic */}
               <div className="space-y-1.5">
-                <Label className="text-sm font-medium">Discussion Topic *</Label>
+                <Label className="text-sm font-medium">{content.fields.discussionTopic.label}</Label>
                 <Select value={discussionTopic} onValueChange={(v) => { setDiscussionTopic(v); if (errors.discussionTopic) setErrors((e) => ({ ...e, discussionTopic: undefined })); }}>
                   <SelectTrigger className={`h-12 rounded-xl border-border/80 ${errors.discussionTopic ? "border-destructive" : ""}`}>
-                    <SelectValue placeholder="Select discussion topic" />
+                    <SelectValue placeholder={content.fields.discussionTopic.placeholder} />
                   </SelectTrigger>
                   <SelectContent>
                     {discussionTopics.map((topic) => (
@@ -336,13 +324,13 @@ const BookingFormSection = () => {
               {/* Requirement */}
               <div className="space-y-1.5">
                 <Label htmlFor="booking-requirement" className="text-sm font-medium">
-                  Describe Your Requirement{" "}
-                  <span className="text-muted-foreground font-normal">(optional)</span>
+                  {content.fields.requirement.label}{" "}
+                  <span className="text-muted-foreground font-normal">{content.fields.requirement.optionalLabel}</span>
                 </Label>
                 <Textarea
                   id="booking-requirement"
                   name="requirement"
-                  placeholder="E.g., I need guidance on choosing the best health insurance plan..."
+                  placeholder={content.fields.requirement.placeholder}
                   rows={3}
                   maxLength={1000}
                   className="rounded-xl border-border/80 focus:border-primary"
@@ -367,16 +355,16 @@ const BookingFormSection = () => {
                 type="submit"
                 size="lg"
                 disabled={submitting}
-                className="w-full h-14 rounded-xl gap-2 text-lg font-bold gradient-bg border-0 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 ring-2 ring-primary/20 ring-offset-2 ring-offset-background cta-glow disabled:opacity-70 disabled:pointer-events-none"
+                className="w-full h-14 rounded-full gap-2 text-lg font-bold gradient-bg border-0 shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 cta-glow disabled:opacity-70 disabled:pointer-events-none"
               >
                 {submitting ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    Submitting...
+                    {content.submittingButton}
                   </>
                 ) : (
                   <>
-                    Submit & Book Your Call
+                    {content.submitButton}
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -384,7 +372,7 @@ const BookingFormSection = () => {
 
               <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-1">
                 <Shield className="w-3.5 h-3.5" />
-                Your information is secure and will never be shared.
+                {content.securityNote}
               </div>
             </form>
           </AnimatedSection>

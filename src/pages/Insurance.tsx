@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import LandingNavbar from "@/components/landing/LandingNavbar";
 import InsuranceHero from "@/components/insurance/InsuranceHero";
 import InsuranceTypes from "@/components/insurance/InsuranceTypes";
 import InsuranceCTA from "@/components/insurance/InsuranceCTA";
@@ -8,7 +8,7 @@ import InsuranceFooter from "@/components/insurance/InsuranceFooter";
 const Insurance = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar variant="insurance" />
+      <LandingNavbar />
       <InsuranceHero />
       <InsuranceTypes />
       <InsuranceCTA />

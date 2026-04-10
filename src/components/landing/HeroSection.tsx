@@ -1,43 +1,56 @@
-import { Shield, ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import siteContent from "@/data/siteContent";
 
-const { hero } = siteContent.insurance;
+const HeroSection = () => {
+  const { hero } = siteContent;
 
-const InsuranceHero = () => {
   return (
-    <section id="insurance-hero" className="relative min-h-[100vh] flex items-center overflow-hidden hero-gradient">
+    <section
+      id="hero"
+      className="relative min-h-[100vh] flex items-center overflow-hidden hero-gradient"
+    >
+      {/* Background Effects */}
       <div className="absolute inset-0 grid-pattern-dark pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] rounded-full bg-emerald-500/8 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/8 blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-purple-500/10 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-indigo-500/5 blur-[150px]" />
       </div>
 
+      {/* Floating Orbs */}
       <motion.div
-        className="absolute top-24 right-[18%] w-3 h-3 rounded-full bg-emerald-400/40"
-        animate={{ y: [0, -18, 0], opacity: [0.4, 0.8, 0.4] }}
+        className="absolute top-20 right-[15%] w-3 h-3 rounded-full bg-blue-400/40"
+        animate={{ y: [0, -20, 0], opacity: [0.4, 0.8, 0.4] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[30%] left-[12%] w-2 h-2 rounded-full bg-blue-400/40"
-        animate={{ y: [0, -12, 0], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        className="absolute top-[40%] left-[10%] w-2 h-2 rounded-full bg-purple-400/40"
+        animate={{ y: [0, -15, 0], opacity: [0.3, 0.7, 0.3] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+      <motion.div
+        className="absolute bottom-[30%] right-[20%] w-4 h-4 rounded-full bg-emerald-400/30"
+        animate={{ y: [0, -25, 0], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
       <div className="container-wide relative z-10 px-6 md:px-10 pt-32 pb-20 md:pt-40 md:pb-28">
         <div className="max-w-4xl mx-auto text-center space-y-8">
+          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-card-dark text-white/80 text-sm font-medium">
-              <Shield className="w-4 h-4 text-emerald-400" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               {hero.badge}
             </span>
           </motion.div>
 
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -45,9 +58,10 @@ const InsuranceHero = () => {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] font-display text-balance"
           >
             {hero.headline}{" "}
-            <span className="gradient-text-green">{hero.headlineHighlight}</span>
+            <span className="gradient-text">{hero.headlineHighlight}</span>
           </motion.h1>
 
+          {/* Subheading */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,6 +71,7 @@ const InsuranceHero = () => {
             {hero.subheading}
           </motion.p>
 
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,7 +80,7 @@ const InsuranceHero = () => {
           >
             <Button
               size="lg"
-              className="rounded-full gap-2.5 px-10 h-14 text-lg gradient-bg-green text-white border-0 shadow-2xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-[1.03] transition-all duration-300 font-bold cta-glow"
+              className="rounded-full gap-2.5 px-10 h-14 text-lg gradient-bg text-white border-0 shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.03] transition-all duration-300 font-bold cta-glow"
               asChild
             >
               <a href={hero.primaryCta.href}>
@@ -86,22 +101,29 @@ const InsuranceHero = () => {
             </Button>
           </motion.div>
 
+          {/* Trust Indicators */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-wrap gap-x-6 gap-y-3 justify-center pt-6"
           >
-            {hero.trustIndicators.map((item, i) => (
-              <span key={i} className="text-sm text-white/50 font-medium">{item}</span>
+            {hero.trustIndicators.map((indicator, i) => (
+              <span
+                key={i}
+                className="text-sm text-white/50 font-medium"
+              >
+                {indicator}
+              </span>
             ))}
           </motion.div>
         </div>
       </div>
 
+      {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
 
-export default InsuranceHero;
+export default HeroSection;

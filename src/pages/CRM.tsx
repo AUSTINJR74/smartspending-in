@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import Navbar from "@/components/Navbar";
+import LandingNavbar from "@/components/landing/LandingNavbar";
+import siteContent from "@/data/siteContent";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -36,6 +37,8 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+
+const crmContent = siteContent.crm;
 
 const STATUSES = ["New", "Contacted", "Follow-up", "Converted", "Lost"] as const;
 type Status = (typeof STATUSES)[number];
@@ -134,14 +137,14 @@ const CRM = () => {
   };
 
   return (
-    <div className="min-h-screen bg-muted/30">
-      <Navbar variant="insurance" />
+    <div className="min-h-screen bg-background">
+      <LandingNavbar />
       <div className="pt-24 pb-12 px-4 md:px-6 max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold font-heading text-foreground">
-              Lead Pipeline
+            <h1 className="text-2xl md:text-3xl font-extrabold font-display text-foreground">
+              {crmContent.pageTitle}
             </h1>
             <p className="text-muted-foreground text-sm mt-1">
               {leads.length} total leads · {leads.filter((l) => l.status === "Follow-up").length} follow-ups pending
@@ -151,16 +154,16 @@ const CRM = () => {
             <div className="relative flex-1 sm:w-64">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
-                placeholder="Search leads..."
+                placeholder={crmContent.searchPlaceholder}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-9 h-10 rounded-xl"
+                className="pl-9 h-10 rounded-full border-border/60"
               />
             </div>
             <Dialog open={addDialogOpen} onOpenChange={setAddDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="gap-2 rounded-xl shrink-0">
-                  <Plus className="w-4 h-4" /> Add Lead
+                <Button className="gap-2 rounded-full gradient-bg border-0 text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] transition-all duration-300 shrink-0">
+                  <Plus className="w-4 h-4" /> {crmContent.addButtonLabel}
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-md">
@@ -175,7 +178,7 @@ const CRM = () => {
 
         {/* Kanban Board */}
         {isLoading ? (
-          <div className="text-center py-20 text-muted-foreground">Loading leads...</div>
+          <div className="text-center py-20 text-muted-foreground">{crmContent.loadingText}</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-x-auto">
             {STATUSES.map((status) => (
@@ -219,9 +222,9 @@ const KanbanColumn = ({
         {leads.length}
       </Badge>
     </div>
-    <div className="space-y-2.5 min-h-[200px] bg-muted/40 rounded-xl p-2.5 border border-border/50">
+    <div className="space-y-2.5 min-h-[200px] bg-white/60 rounded-2xl p-2.5 border border-border/50">
       {leads.length === 0 ? (
-        <p className="text-xs text-muted-foreground text-center py-8">No leads</p>
+        <p className="text-xs text-muted-foreground text-center py-8">{crmContent.noLeadsText}</p>
       ) : (
         leads.map((lead) => (
           <LeadCard
@@ -256,7 +259,7 @@ const LeadCard = ({
       <DialogTrigger asChild>
         <Card
           className={cn(
-            "p-3.5 cursor-pointer hover:shadow-md transition-all border rounded-xl bg-background",
+            "p-3.5 cursor-pointer hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5 transition-all duration-300 border border-border/60 rounded-2xl bg-white",
             isUrgent && "ring-2 ring-amber-400/60 border-amber-300"
           )}
         >
@@ -415,7 +418,7 @@ const LeadDetail = ({
         <Label className="text-xs text-muted-foreground mb-2 block">Next Follow-up Date</Label>
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline" className={cn("w-full justify-start text-left rounded-xl h-10", !followUpDate && "text-muted-foreground")}>
+            <Button variant="outline" className={cn("w-full justify-start text-left rounded-xl h-10 border-border/60", !followUpDate && "text-muted-foreground")}>
               <CalendarIcon className="mr-2 h-4 w-4" />
               {followUpDate ? format(followUpDate, "PPP") : "Pick a date"}
             </Button>
@@ -448,12 +451,12 @@ const LeadDetail = ({
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Add notes about this lead..."
           rows={3}
-          className="rounded-xl"
+          className="rounded-xl border-border/60"
         />
         <Button
           size="sm"
           variant="outline"
-          className="mt-2 rounded-lg"
+          className="mt-2 rounded-full"
           onClick={() => {
             onUpdateLead(lead.id, { notes });
             toast.success("Notes saved");
@@ -499,27 +502,27 @@ const AddLeadForm = ({
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <Label htmlFor="add-name" className="text-sm">Name *</Label>
-        <Input id="add-name" name="name" required placeholder="Lead name" className="h-10 rounded-xl mt-1" />
+        <Input id="add-name" name="name" required placeholder="Lead name" className="h-10 rounded-xl mt-1 border-border/60" />
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div>
           <Label htmlFor="add-phone" className="text-sm">Phone</Label>
-          <Input id="add-phone" name="phone" placeholder="+91..." className="h-10 rounded-xl mt-1" />
+          <Input id="add-phone" name="phone" placeholder="+91..." className="h-10 rounded-xl mt-1 border-border/60" />
         </div>
         <div>
           <Label htmlFor="add-email" className="text-sm">Email</Label>
-          <Input id="add-email" name="email" type="email" placeholder="email" className="h-10 rounded-xl mt-1" />
+          <Input id="add-email" name="email" type="email" placeholder="email" className="h-10 rounded-xl mt-1 border-border/60" />
         </div>
       </div>
       <div>
         <Label htmlFor="add-type" className="text-sm">Consultation Type</Label>
-        <Input id="add-type" name="consultation_type" placeholder="e.g. Insurance" className="h-10 rounded-xl mt-1" />
+        <Input id="add-type" name="consultation_type" placeholder="e.g. Insurance" className="h-10 rounded-xl mt-1 border-border/60" />
       </div>
       <div>
         <Label className="text-sm">Follow-up Date</Label>
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline" className={cn("w-full justify-start text-left rounded-xl h-10 mt-1", !followUpDate && "text-muted-foreground")}>
+            <Button variant="outline" className={cn("w-full justify-start text-left rounded-xl h-10 mt-1 border-border/60", !followUpDate && "text-muted-foreground")}>
               <CalendarIcon className="mr-2 h-4 w-4" />
               {followUpDate ? format(followUpDate, "PPP") : "Pick a date"}
             </Button>
@@ -537,9 +540,9 @@ const AddLeadForm = ({
       </div>
       <div>
         <Label htmlFor="add-notes" className="text-sm">Notes</Label>
-        <Textarea id="add-notes" name="notes" placeholder="Any notes..." rows={2} className="rounded-xl mt-1" />
+        <Textarea id="add-notes" name="notes" placeholder="Any notes..." rows={2} className="rounded-xl mt-1 border-border/60" />
       </div>
-      <Button type="submit" className="w-full rounded-xl" disabled={isLoading}>
+      <Button type="submit" className="w-full rounded-full gradient-bg border-0 text-white shadow-lg shadow-primary/20" disabled={isLoading}>
         {isLoading ? "Adding..." : "Add Lead"}
       </Button>
     </form>
