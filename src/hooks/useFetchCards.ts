@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchCardData } from '@/utils/fetchCardData';
 import type { CreditCard } from '@/types/creditCard';
+import cards from '@/data/cards.json';
 
 export function useFetchCards() {
   const [cardsData, setCardsData] = useState<CreditCard[]>([]);
@@ -10,8 +10,8 @@ export function useFetchCards() {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const data = await fetchCardData();
-        setCardsData(data);
+        await new Promise(resolve => setTimeout(resolve, 500));
+        setCardsData(cards);
         setError(null);
       } catch (err) {
         console.error('Failed to fetch cards:', err);

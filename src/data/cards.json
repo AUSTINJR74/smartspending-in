@@ -1,0 +1,586 @@
+[
+  {
+    "id": "hdfc-regalia",
+    "bank": "HDFC",
+    "name": "HDFC Regalia Credit Card",
+    "category": [
+      "Rewards",
+      "Travel"
+    ],
+    "type": "Premium",
+    "joining_fee": 2500,
+    "annual_fee": 2500,
+    "reward_rate": "1% - 4%",
+    "benefits": [
+      "Complimentary airport lounge access (domestic & international) ",
+      " 10X reward points on SmartBuy ",
+      " Milestone benefits up to ₹7,500 ",
+      " Fuel surcharge waiver"
+    ],
+    "image": "/cards/hdfc-regalia.png",
+    "tags": [
+      "Top Card",
+      "Travel"
+    ],
+    "eligibility": {
+      "min_salary": 40000,
+      "recommended_for": [
+        "Frequent Travelers",
+        "High Spenders"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.8
+  },
+  {
+    "id": "hdfc-millennia",
+    "bank": "HDFC",
+    "name": "HDFC Millennia Credit Card",
+    "category": [
+      "Cashback",
+      "UPI"
+    ],
+    "type": "Standard",
+    "joining_fee": 1000,
+    "annual_fee": 1000,
+    "reward_rate": "1% - 5%",
+    "benefits": [
+      "5% cashback on Amazon, Flipkart, Myntra ",
+      " 2.5% cashback on all online spends ",
+      " 1% cashback on other spends ",
+      " Complimentary domestic lounge visits"
+    ],
+    "image": "/cards/hdfc-millennia.png",
+    "tags": [
+      "Top Card",
+      "Cashback"
+    ],
+    "eligibility": {
+      "min_salary": 25000,
+      "recommended_for": [
+        "Online Shoppers",
+        "Millennials"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.6
+  },
+  {
+    "id": "hdfc-indian-oil",
+    "bank": "HDFC",
+    "name": "HDFC Indian Oil Credit Card",
+    "category": [
+      "Fuel"
+    ],
+    "type": "Standard",
+    "joining_fee": 500,
+    "annual_fee": 500,
+    "reward_rate": "Up to 50x on fuel",
+    "benefits": [
+      "5% cashback at Indian Oil outlets ",
+      " Fuel surcharge waiver across all stations ",
+      " Welcome benefit of 2,100 reward points ",
+      " Annual fee waived on ₹50,000 spend"
+    ],
+    "image": "/cards/hdfc-indianoil.png",
+    "tags": [
+      "Fuel"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Daily Commuters",
+        "Fuel Spenders"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.3
+  },
+  {
+    "id": "sbi-cashback",
+    "bank": "SBI",
+    "name": "SBI Cashback Credit Card",
+    "category": [
+      "Cashback"
+    ],
+    "type": "Standard",
+    "joining_fee": 999,
+    "annual_fee": 999,
+    "reward_rate": "1% - 5%",
+    "benefits": [
+      "5% cashback on all online spends ",
+      " 1% cashback on offline spends ",
+      " Annual fee waived on ₹2L spend ",
+      " Exclusive e-commerce offers"
+    ],
+    "image": "/cards/sbi-cashback.png",
+    "tags": [
+      "Top Card",
+      "Cashback"
+    ],
+    "eligibility": {
+      "min_salary": 20000,
+      "recommended_for": [
+        "Online Shoppers"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.5
+  },
+  {
+    "id": "sbi-bpcl",
+    "bank": "SBI",
+    "name": "SBI BPCL Credit Card",
+    "category": [
+      "Fuel"
+    ],
+    "type": "Standard",
+    "joining_fee": 499,
+    "annual_fee": 499,
+    "reward_rate": "Up to 13x on fuel",
+    "benefits": [
+      "13X reward points at BPCL fuel stations ",
+      " 1% fuel surcharge waiver ",
+      " Annual fee reversal on ₹1L spend ",
+      " Dining and movie discounts"
+    ],
+    "image": "/cards/sbi-bpcl.png",
+    "tags": [
+      "Fuel"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Fuel Spenders",
+        "Daily Commuters"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.2
+  },
+  {
+    "id": "sbi-elite",
+    "bank": "SBI",
+    "name": "SBI Elite Credit Card",
+    "category": [
+      "Rewards",
+      "Travel"
+    ],
+    "type": "Premium",
+    "joining_fee": 4999,
+    "annual_fee": 4999,
+    "reward_rate": "2x - 10x",
+    "benefits": [
+      "Complimentary Club Vistara Silver membership ",
+      " Unlimited domestic & international lounge access ",
+      " Milestone rewards worth ₹11,000 ",
+      " Golf privileges at select courses"
+    ],
+    "image": "/cards/sbi-elite.png",
+    "tags": [
+      "Premium",
+      "Travel"
+    ],
+    "eligibility": {
+      "min_salary": 50000,
+      "recommended_for": [
+        "Frequent Travelers",
+        "High Spenders"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.7
+  },
+  {
+    "id": "icici-rubyx",
+    "bank": "ICICI",
+    "name": "ICICI Rubyx Credit Card",
+    "category": [
+      "Rewards",
+      "Travel"
+    ],
+    "type": "Premium",
+    "joining_fee": 3000,
+    "annual_fee": 3000,
+    "reward_rate": "0.5% - 1%",
+    "benefits": [
+      "Airport lounge access (4 per quarter) ",
+      " Dining discounts up to 20% ",
+      " Fuel surcharge waiver ",
+      " BookMyShow BOGO offers"
+    ],
+    "image": "/cards/icici-rubyx.png",
+    "tags": [
+      "Top Card",
+      "Travel"
+    ],
+    "eligibility": {
+      "min_salary": 30000,
+      "recommended_for": [
+        "Frequent Travelers"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.5
+  },
+  {
+    "id": "icici-amazon-pay",
+    "bank": "ICICI",
+    "name": "ICICI Amazon Pay Credit Card",
+    "category": [
+      "Cashback",
+      "Rewards"
+    ],
+    "type": "Free",
+    "joining_fee": 0,
+    "annual_fee": 0,
+    "reward_rate": "1% - 5%",
+    "benefits": [
+      "5% cashback on Amazon.in for Prime members ",
+      " 2% cashback on 100+ partner merchants ",
+      " 1% cashback on all other spends ",
+      " No joining or annual fee — lifetime free"
+    ],
+    "image": "/cards/icici-amazon.png",
+    "tags": [
+      "Top Card",
+      "Free"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Online Shoppers",
+        "Budget Conscious"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.7
+  },
+  {
+    "id": "icici-hpcl-coral",
+    "bank": "ICICI",
+    "name": "ICICI HPCL Coral Credit Card",
+    "category": [
+      "Fuel"
+    ],
+    "type": "Standard",
+    "joining_fee": 199,
+    "annual_fee": 199,
+    "reward_rate": "Up to 6x on fuel",
+    "benefits": [
+      "6X reward points at HPCL fuel stations ",
+      " 1% fuel surcharge waiver ",
+      " Dining & movie discounts ",
+      " Domestic airport lounge access"
+    ],
+    "image": "/cards/icici-hpcl.png",
+    "tags": [
+      "Fuel"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Fuel Spenders"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.1
+  },
+  {
+    "id": "axis-flipkart",
+    "bank": "Axis",
+    "name": "Axis Flipkart Credit Card",
+    "category": [
+      "Cashback",
+      "Rewards"
+    ],
+    "type": "Free",
+    "joining_fee": 0,
+    "annual_fee": 0,
+    "reward_rate": "1.5% - 5%",
+    "benefits": [
+      "5% unlimited cashback on Flipkart ",
+      " 4% cashback on Uber, Swiggy, PVR, Curefit ",
+      " 1.5% cashback on all other spends ",
+      " Lifetime free — no annual fee"
+    ],
+    "image": "/cards/axis-flipkart.png",
+    "tags": [
+      "Top Card",
+      "Free",
+      "Cashback"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Online Shoppers",
+        "Budget Conscious"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.6
+  },
+  {
+    "id": "axis-ace",
+    "bank": "Axis",
+    "name": "Axis ACE Credit Card",
+    "category": [
+      "Cashback",
+      "UPI"
+    ],
+    "type": "Free",
+    "joining_fee": 0,
+    "annual_fee": 0,
+    "reward_rate": "1% - 5%",
+    "benefits": [
+      "5% cashback on bill payments via Google Pay ",
+      " 4% cashback on Swiggy, Zomato ",
+      " 2% cashback on all other spends ",
+      " Lifetime free card"
+    ],
+    "image": "/cards/axis-ace.png",
+    "tags": [
+      "Top Card",
+      "Free",
+      "UPI"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "UPI Users",
+        "Budget Conscious"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.7
+  },
+  {
+    "id": "axis-magnus",
+    "bank": "Axis",
+    "name": "Axis Magnus Credit Card",
+    "category": [
+      "Rewards",
+      "Travel"
+    ],
+    "type": "Super Premium",
+    "joining_fee": 10000,
+    "annual_fee": 10000,
+    "reward_rate": "1.2% - 12%",
+    "benefits": [
+      "Unlimited international & domestic lounge access ",
+      " 12X Edge Rewards on travel via Axis Travel Edge ",
+      " Milestone benefits worth ₹25,000 ",
+      " Complimentary golf rounds"
+    ],
+    "image": "/cards/axis-magnus.png",
+    "tags": [
+      "Premium",
+      "Travel"
+    ],
+    "eligibility": {
+      "min_salary": 100000,
+      "recommended_for": [
+        "Frequent Travelers",
+        "Ultra High Spenders"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.9
+  },
+  {
+    "id": "kotak-811",
+    "bank": "Kotak",
+    "name": "Kotak 811 #DreamDifferent Credit Card",
+    "category": [
+      "Cashback",
+      "Rewards"
+    ],
+    "type": "Free",
+    "joining_fee": 0,
+    "annual_fee": 0,
+    "reward_rate": "1% - 3%",
+    "benefits": [
+      "Zero joining & annual fee ",
+      " Up to 3% cashback on online spends ",
+      " 1% cashback on other spends ",
+      " Easy digital application"
+    ],
+    "image": "/cards/kotak-811.png",
+    "tags": [
+      "Free"
+    ],
+    "eligibility": {
+      "min_salary": 12000,
+      "recommended_for": [
+        "First-time Users",
+        "Budget Conscious"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4
+  },
+  {
+    "id": "kotak-league-platinum",
+    "bank": "Kotak",
+    "name": "Kotak League Platinum Credit Card",
+    "category": [
+      "Rewards",
+      "Travel"
+    ],
+    "type": "Standard",
+    "joining_fee": 1499,
+    "annual_fee": 1499,
+    "reward_rate": "1% - 4%",
+    "benefits": [
+      "4 domestic airport lounge visits per year ",
+      " 4X reward points on dining ",
+      " Buy 1 Get 1 on BookMyShow ",
+      " Fuel surcharge waiver"
+    ],
+    "image": "/cards/kotak-league.png",
+    "tags": [
+      "Rewards"
+    ],
+    "eligibility": {
+      "min_salary": 25000,
+      "recommended_for": [
+        "Entertainment Lovers",
+        "Diners"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.2
+  },
+  {
+    "id": "yes-bank-marquee",
+    "bank": "Yes Bank",
+    "name": "Yes Bank Marquee Credit Card",
+    "category": [
+      "Rewards",
+      "Travel"
+    ],
+    "type": "Premium",
+    "joining_fee": 2500,
+    "annual_fee": 2500,
+    "reward_rate": "2% - 8%",
+    "benefits": [
+      "TAJ InnerCircle Silver membership ",
+      " Unlimited domestic lounge visits ",
+      " 8X reward points on travel and dining ",
+      " Golf privileges"
+    ],
+    "image": "/cards/yes-marquee.png",
+    "tags": [
+      "Travel"
+    ],
+    "eligibility": {
+      "min_salary": 35000,
+      "recommended_for": [
+        "Frequent Travelers",
+        "Diners"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.3
+  },
+  {
+    "id": "au-lit",
+    "bank": "AU Small Finance",
+    "name": "AU LIT Credit Card",
+    "category": [
+      "Cashback",
+      "UPI",
+      "Rewards"
+    ],
+    "type": "Standard",
+    "joining_fee": 499,
+    "annual_fee": 499,
+    "reward_rate": "1% - 5%",
+    "benefits": [
+      "5% cashback on Zomato, Swiggy ",
+      " 3% on groceries and utilities ",
+      " Customizable card design ",
+      " Movie ticket BOGO offers"
+    ],
+    "image": "/cards/au-lit.png",
+    "tags": [
+      "Groceries",
+      "UPI"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Young Professionals",
+        "Food Lovers"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.1
+  },
+  {
+    "id": "hdfc-swiggy",
+    "bank": "HDFC",
+    "name": "HDFC Swiggy Credit Card",
+    "category": [
+      "Cashback",
+      "Groceries"
+    ],
+    "type": "Free",
+    "joining_fee": 0,
+    "annual_fee": 0,
+    "reward_rate": "1% - 10%",
+    "benefits": [
+      "10% cashback on Swiggy orders ",
+      " 5% on online grocery platforms ",
+      " 1% on all other spends ",
+      " Lifetime free card"
+    ],
+    "image": "/cards/hdfc-swiggy.png",
+    "tags": [
+      "Free",
+      "Groceries",
+      "Cashback"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Food Lovers",
+        "Online Shoppers"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.4
+  },
+  {
+    "id": "sbi-simplysave",
+    "bank": "SBI",
+    "name": "SBI SimplySAVE Credit Card",
+    "category": [
+      "Rewards",
+      "Groceries"
+    ],
+    "type": "Standard",
+    "joining_fee": 499,
+    "annual_fee": 499,
+    "reward_rate": "1% - 5%",
+    "benefits": [
+      "10X reward points on dining, groceries, movies, department stores ",
+      " Fuel surcharge waiver ",
+      " Annual fee reversal on ₹1L spend ",
+      " EMI conversion facility"
+    ],
+    "image": "/cards/sbi-simplysave.png",
+    "tags": [
+      "Groceries"
+    ],
+    "eligibility": {
+      "min_salary": 15000,
+      "recommended_for": [
+        "Families",
+        "Grocery Shoppers"
+      ]
+    },
+    "apply_url": "#",
+    "rating": 4.2
+  }
+]
