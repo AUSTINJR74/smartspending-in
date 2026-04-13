@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight, Shield, AlertCircle } from "lucide-react";
 import { z } from "zod";
 import siteContent from "@/data/siteContent";
+import { validateMobile } from "@/lib/utils";
 
 const { form: formContent } = siteContent.insurance;
 
@@ -29,7 +30,14 @@ const discussionTopics = formContent.discussionTopics;
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
-  phone: z.string().trim().min(1, "Phone number is required").regex(/^\+\d{1,3}\s?\d{6,14}$/, "Enter valid number with country code (e.g. +91 9876543210)"),
+  phone: z
+    .string()
+    .trim()
+    .min(1, "Phone number is required")
+    .refine((value) => {
+      const error = validateMobile(value);
+      return error === '';
+    }, "Enter a valid 10-digit phone number"),
   email: z.string().trim().min(1, "Email is required").regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Enter a valid email (e.g. name@example.com)"),
   consultationTypes: z.array(z.string()).min(1, "Select at least one consultation type"),
   discussionTopics: z.array(z.string()).min(1, "Select at least one discussion topic"),
@@ -196,8 +204,8 @@ const InsuranceForm = () => {
 
           {/* Phone */}
           <div className="space-y-1.5">
-            <Label htmlFor="ins-phone" className="text-sm font-medium">Phone (with country code) *</Label>
-            <Input id="ins-phone" name="phone" type="tel" placeholder="+91 9876543210" maxLength={16} className={`h-12 rounded-xl transition-all ${errors.phone ? "border-destructive ring-2 ring-destructive/20 bg-destructive/5" : ""}`} />
+            <Label htmlFor="ins-phone" className="text-sm font-medium">Phone Number *</Label>
+            <Input id="ins-phone" name="phone" type="tel" placeholder="9876543210" maxLength={10} className={`h-12 rounded-xl transition-all ${errors.phone ? "border-destructive ring-2 ring-destructive/20 bg-destructive/5" : ""}`} />
             {errors.phone && <p className="text-sm text-destructive flex items-center gap-1.5 mt-1.5 bg-destructive/10 px-3 py-1.5 rounded-lg animate-fade-in-up"><AlertCircle className="w-3.5 h-3.5 shrink-0" />{errors.phone}</p>}
           </div>
 

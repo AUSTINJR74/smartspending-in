@@ -22,6 +22,7 @@ import { z } from "zod";
 import AnimatedSection from "./AnimatedSection";
 import guidanceImg from "@/assets/guidance-illustration.png";
 import siteContent from "@/data/siteContent";
+import { validateMobile } from "@/lib/utils";
 
 const content = siteContent.booking;
 
@@ -55,7 +56,10 @@ const formSchema = z.object({
     .string()
     .trim()
     .min(1, "Phone number is required")
-    .regex(/^\+?\d{10,15}$/, "Enter a valid phone number with country code"),
+    .refine((value) => {
+      const error = validateMobile(value);
+      return error === '';
+    }, "Enter a valid 10-digit phone number"),
   email: z
     .string()
     .trim()
@@ -290,7 +294,7 @@ const BookingFormSection = () => {
                   name="phone"
                   type="tel"
                   placeholder={content.fields.phone.placeholder}
-                  maxLength={16}
+                  maxLength={10}
                   className={`h-12 rounded-xl border-border/80 focus:border-primary ${errors.phone ? "border-destructive" : ""}`}
                 />
                 <FieldError msg={errors.phone} />

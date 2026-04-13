@@ -768,9 +768,9 @@ const siteContent: SiteContent = {
       "Other",
     ],
     fields: {
-      name: { label: "Full Name *", placeholder: "Your name" },
-      phone: { label: "Phone (with country code) *", placeholder: "+91 9876543210" },
-      email: { label: "Email Address *", placeholder: "name@example.com" },
+      name: { label: "Full Name *", placeholder: "Enter Your Full Name" },
+      phone: { label: "Mobile Number *", placeholder: "Enter Your Mobile Number" },
+      email: { label: "Email Address *", placeholder: "Enter Your Email Address" },
       consultationType: { label: "Consultation Type *", placeholder: "Select consultation type" },
       discussionTopic: { label: "Discussion Topic *", placeholder: "Select discussion topic" },
       requirement: {

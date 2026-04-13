@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import siteContent from "@/data/siteContent";
+import logoLight from "@/assets/brand/SS_LOGO_LIGHT.png";
 
 const FooterSection = () => {
   const location = useLocation();
@@ -13,10 +14,11 @@ const FooterSection = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
           {/* Brand */}
           <div className="space-y-4 lg:col-span-1">
-            <p className="font-extrabold text-2xl tracking-tight font-display">
-              {footer.brand}
-              <span className="gradient-text">{footer.brandHighlight}</span>
-            </p>
+            <img
+              src={logoLight}
+              alt="SmartSpending Logo"
+              className="h-20 md:h-[100px] w-auto"
+            />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               {footer.tagline}
             </p>

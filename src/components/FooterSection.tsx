@@ -2,6 +2,7 @@ import { Instagram, Twitter, Linkedin, Youtube, Mail, ArrowRight } from "lucide-
 import { Button } from "@/components/ui/button";
 import { useLocation } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
+import logoLight from "@/assets/brand/SS_LOGO_LIGHT.png";
 
 const socials = [
   { icon: Instagram, href: "https://instagram.com/smartspending.in", label: "Instagram" },
@@ -42,7 +43,11 @@ const FooterSection = () => {
         <div className="container-wide px-6 md:px-10 py-12">
           <div className="grid sm:grid-cols-3 gap-10 mb-10">
             <div className="space-y-3">
-              <p className="font-bold text-xl tracking-tight font-display">SmartSpending</p>
+              <img
+                src={logoLight}
+                alt="SmartSpending Logo"
+                className="h-10 w-auto"
+              />
               <p className="text-background/50 text-sm leading-relaxed">Madhan — Finance Educator<br />Helping Indians master their money.</p>
             </div>
             <div className="space-y-3">

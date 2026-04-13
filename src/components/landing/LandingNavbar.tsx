@@ -3,6 +3,8 @@ import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
 import siteContent from "@/data/siteContent";
+import logoLight from "@/assets/brand/SS_LOGO_LIGHT.png";
+import logoDark from "@/assets/brand/SS_LOGO_DARK.png";
 
 const creditCardSubLinks = [
   { label: "All Cards", href: "/credit-cards" },
@@ -62,12 +64,13 @@ const LandingNavbar = () => {
       <div className="container-wide flex items-center justify-between h-[4.5rem] px-6 md:px-10">
         <a
           href="#hero"
-          className="font-extrabold text-xl tracking-tight font-display"
+          className="flex items-center"
         >
-          <span className={scrolled ? "text-foreground" : "text-white"}>
-            {nav.brand}
-          </span>
-          <span className="gradient-text">{nav.brandHighlight}</span>
+          <img
+            src={scrolled ? logoDark : logoLight}
+            alt="SmartSpending Logo"
+            className="h-20 md:h-[100px] w-auto"
+          />
         </a>
 
         <div className="hidden lg:flex items-center gap-8">

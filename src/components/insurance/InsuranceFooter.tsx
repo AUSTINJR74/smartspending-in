@@ -1,6 +1,7 @@
 import { Mail, MessageCircle, AlertTriangle, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import siteContent from "@/data/siteContent";
+import logoLight from "@/assets/brand/SS_LOGO_LIGHT.png";
 
 const { footer } = siteContent.insurance;
 
@@ -24,8 +25,12 @@ const InsuranceFooter = () => {
         <div className="container-wide">
           <div className="grid sm:grid-cols-3 gap-10 mb-12">
             <div className="space-y-4">
-              <a href="/" className="font-extrabold text-2xl tracking-tight font-display">
-                {footer.brand}<span className="gradient-text">{footer.brandHighlight}</span>
+              <a href="/">
+                <img
+                  src={logoLight}
+                  alt="SmartSpending Logo"
+                  className="h-10 w-auto"
+                />
               </a>
               <p className="text-white/40 text-sm leading-relaxed max-w-xs">{footer.tagline}</p>
             </div>
